@@ -11,6 +11,7 @@ import (
 	"backend/internal/models"
 	"backend/internal/repositories"
 	"backend/internal/services"
+	"backend/internal/utils"
 
 	"github.com/gin-gonic/gin"
 )
@@ -34,11 +35,7 @@ func (ctrl *ProductController) CreateProduct(c *gin.Context) {
 			zap.Error(err),
 		)
 
-		c.JSON(http.StatusBadRequest, models.APIResponse{
-			Success: false,
-			Message: "Dữ liệu gửi lên không hợp lệ",
-			Error:   err.Error(),
-		})
+		utils.InvalidDataResponse(c, http.StatusBadRequest, err)
 		return
 	}
 
@@ -53,11 +50,7 @@ func (ctrl *ProductController) CreateProduct(c *gin.Context) {
 				zap.Error(err),
 			)
 
-			c.JSON(http.StatusBadRequest, models.APIResponse{
-				Success: false,
-				Message: "Kiểm tra dữ liệu không đạt yêu cầu",
-				Error:   err.Error(),
-			})
+			utils.InvalidDataResponse(c, http.StatusBadRequest, err)
 			return
 		}
 
@@ -66,11 +59,7 @@ func (ctrl *ProductController) CreateProduct(c *gin.Context) {
 			zap.Error(err),
 		)
 
-		c.JSON(http.StatusInternalServerError, models.APIResponse{
-			Success: false,
-			Message: "Lỗi hệ thống khi tạo sản phẩm",
-			Error:   err.Error(),
-		})
+		utils.NoConnectDataResponse(c, http.StatusBadRequest, err)
 		return
 	}
 
@@ -79,11 +68,7 @@ func (ctrl *ProductController) CreateProduct(c *gin.Context) {
 		zap.Any("product_id", product.ID),
 	)
 
-	c.JSON(http.StatusCreated, models.APIResponse{
-		Success: true,
-		Message: "Tạo sản phẩm thành công",
-		Data:    product,
-	})
+	utils.SuccessResponse(c, http.StatusOK, "Tạo sản phẩm", product)
 }
 
 func (ctrl *ProductController) GetAllProducts(c *gin.Context) {
@@ -95,11 +80,7 @@ func (ctrl *ProductController) GetAllProducts(c *gin.Context) {
 			zap.Error(err),
 		)
 
-		c.JSON(http.StatusInternalServerError, models.APIResponse{
-			Success: false,
-			Message: "Lỗi hệ thống khi lấy danh sách sản phẩm",
-			Error:   err.Error(),
-		})
+		utils.NoConnectDataResponse(c, http.StatusBadRequest, err)
 		return
 	}
 
@@ -108,11 +89,7 @@ func (ctrl *ProductController) GetAllProducts(c *gin.Context) {
 		zap.Any("count", len(products)),
 	)
 
-	c.JSON(http.StatusOK, models.APIResponse{
-		Success: true,
-		Message: "Lấy danh sách sản phẩm thành công",
-		Data:    products,
-	})
+	utils.SuccessResponse(c, http.StatusOK, "Lấy sản phẩm", products)
 }
 
 func (ctrl *ProductController) GetProductByID(c *gin.Context) {
@@ -124,29 +101,23 @@ func (ctrl *ProductController) GetProductByID(c *gin.Context) {
 			"ID sản phẩm không hợp lệ",
 			zap.Error(err),
 		)
-		c.JSON(http.StatusBadRequest, models.APIResponse{
-			Success: false,
-			Message: "ID sản phẩm không hợp lệ",
-			Error:   "ID phải là một số nguyên",
-		})
+
+		utils.InvalidDataResponse(c, http.StatusBadRequest, err)
 		return
 	}
 
 	product, err := ctrl.service.GetProductByID(c.Request.Context(), id)
 	if err != nil {
 
-		logger.Log.Warn(
-			"Không tìm thấy sản phẩm với ID đã cung cấp",
-			zap.Int64("id", id),
-			zap.Error(err),
-		)
-
 		if errors.Is(err, repositories.ErrProductNotFound) {
-			c.JSON(http.StatusNotFound, models.APIResponse{
-				Success: false,
-				Message: "Không tìm thấy sản phẩm với ID đã cung cấp",
-				Error:   err.Error(),
-			})
+
+			logger.Log.Warn(
+				"Không tìm thấy sản phẩm với ID đã cung cấp",
+				zap.Int64("id", id),
+				zap.Error(err),
+			)
+
+			utils.InvalidDataResponse(c, http.StatusBadRequest, err)
 			return
 		}
 
@@ -155,11 +126,7 @@ func (ctrl *ProductController) GetProductByID(c *gin.Context) {
 			zap.Error(err),
 		)
 
-		c.JSON(http.StatusInternalServerError, models.APIResponse{
-			Success: false,
-			Message: "Lỗi hệ thống khi tìm kiếm sản phẩm",
-			Error:   err.Error(),
-		})
+		utils.NoConnectDataResponse(c, http.StatusBadRequest, err)
 		return
 	}
 
@@ -168,11 +135,7 @@ func (ctrl *ProductController) GetProductByID(c *gin.Context) {
 		zap.Int64("id", id),
 	)
 
-	c.JSON(http.StatusOK, models.APIResponse{
-		Success: true,
-		Message: "Tìm thấy sản phẩm",
-		Data:    product,
-	})
+	utils.SuccessResponse(c, http.StatusOK, "Lấy sản phẩm", product)
 }
 
 func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
@@ -185,11 +148,7 @@ func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
 			zap.Error(err),
 		)
 
-		c.JSON(http.StatusBadRequest, models.APIResponse{
-			Success: false,
-			Message: "ID sản phẩm không hợp lệ",
-			Error:   "ID phải là một số nguyên",
-		})
+		utils.InvalidDataResponse(c, http.StatusBadRequest, err)
 		return
 	}
 
@@ -201,11 +160,7 @@ func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
 			zap.Error(err),
 		)
 
-		c.JSON(http.StatusBadRequest, models.APIResponse{
-			Success: false,
-			Message: "Dữ liệu cập nhật không hợp lệ",
-			Error:   err.Error(),
-		})
+		utils.InvalidDataResponse(c, http.StatusBadRequest, err)
 		return
 	}
 
@@ -219,11 +174,7 @@ func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
 				zap.Error(err),
 			)
 
-			c.JSON(http.StatusNotFound, models.APIResponse{
-				Success: false,
-				Message: "Không tìm thấy sản phẩm để cập nhật",
-				Error:   err.Error(),
-			})
+			utils.InvalidDataResponse(c, http.StatusBadRequest, err)
 			return
 		}
 
@@ -236,11 +187,7 @@ func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
 				zap.Error(err),
 			)
 
-			c.JSON(http.StatusBadRequest, models.APIResponse{
-				Success: false,
-				Message: "Kiểm tra dữ liệu không đạt yêu cầu",
-				Error:   err.Error(),
-			})
+			utils.InvalidDataResponse(c, http.StatusBadRequest, err)
 			return
 		}
 
@@ -249,11 +196,7 @@ func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
 			zap.Error(err),
 		)
 
-		c.JSON(http.StatusInternalServerError, models.APIResponse{
-			Success: false,
-			Message: "Lỗi hệ thống khi cập nhật sản phẩm",
-			Error:   err.Error(),
-		})
+		utils.NoConnectDataResponse(c, http.StatusBadRequest, err)
 		return
 	}
 
@@ -262,11 +205,7 @@ func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
 		zap.Int64("id", id),
 	)
 
-	c.JSON(http.StatusOK, models.APIResponse{
-		Success: true,
-		Message: "Cập nhật sản phẩm thành công",
-		Data:    updatedProduct,
-	})
+	utils.SuccessResponse(c, http.StatusOK, "Cập nhật sản phẩm", updatedProduct)
 }
 
 func (ctrl *ProductController) DeleteProduct(c *gin.Context) {
@@ -279,11 +218,7 @@ func (ctrl *ProductController) DeleteProduct(c *gin.Context) {
 			zap.Error(err),
 		)
 
-		c.JSON(http.StatusBadRequest, models.APIResponse{
-			Success: false,
-			Message: "ID sản phẩm không hợp lệ",
-			Error:   "ID phải là một số nguyên",
-		})
+		utils.InvalidDataResponse(c, http.StatusBadRequest, err)
 		return
 	}
 
@@ -296,11 +231,7 @@ func (ctrl *ProductController) DeleteProduct(c *gin.Context) {
 				zap.Error(err),
 			)
 
-			c.JSON(http.StatusNotFound, models.APIResponse{
-				Success: false,
-				Message: "Không tìm thấy sản phẩm để xóa",
-				Error:   err.Error(),
-			})
+			utils.InvalidDataResponse(c, http.StatusBadRequest, err)
 			return
 		}
 
@@ -309,11 +240,7 @@ func (ctrl *ProductController) DeleteProduct(c *gin.Context) {
 			zap.Error(err),
 		)
 
-		c.JSON(http.StatusInternalServerError, models.APIResponse{
-			Success: false,
-			Message: "Lỗi hệ thống khi xóa sản phẩm",
-			Error:   err.Error(),
-		})
+		utils.NoConnectDataResponse(c, http.StatusBadRequest, err)
 		return
 	}
 
@@ -322,8 +249,5 @@ func (ctrl *ProductController) DeleteProduct(c *gin.Context) {
 		zap.Int64("id", id),
 	)
 
-	c.JSON(http.StatusOK, models.APIResponse{
-		Success: true,
-		Message: "Xóa sản phẩm thành công",
-	})
+	utils.SuccessResponse(c, http.StatusOK, "Xoá sản phẩm", nil)
 }
