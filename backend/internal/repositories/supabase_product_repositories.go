@@ -1,7 +1,7 @@
 package repositories
 
 import (
-	"backend/models"
+	"backend/internal/models"
 	"context"
 	"encoding/json"
 	"errors"

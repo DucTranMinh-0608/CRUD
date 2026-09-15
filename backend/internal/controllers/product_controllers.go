@@ -7,10 +7,10 @@ import (
 
 	"go.uber.org/zap"
 
-	"backend/logger"
-	"backend/models"
-	"backend/repositories"
-	"backend/services"
+	"backend/internal/logger"
+	"backend/internal/models"
+	"backend/internal/repositories"
+	"backend/internal/services"
 
 	"github.com/gin-gonic/gin"
 )

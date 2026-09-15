@@ -1,8 +1,8 @@
 package services
 
 import (
-	"backend/models"
-	"backend/repositories"
+	"backend/internal/models"
+	"backend/internal/repositories"
 	"context"
 	"errors"
 	"strings"

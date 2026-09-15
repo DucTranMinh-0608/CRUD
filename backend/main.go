@@ -6,9 +6,9 @@ import (
 
 	"go.uber.org/zap"
 
-	"backend/config"
-	"backend/logger"
-	"backend/routes"
+	"backend/internal/config"
+	"backend/internal/logger"
+	"backend/internal/routes"
 
 	"github.com/gin-gonic/gin"
 )

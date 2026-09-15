@@ -1,9 +1,9 @@
 package routes
 
 import (
-	"backend/controllers"
-	"backend/repositories"
-	"backend/services"
+	"backend/internal/controllers"
+	"backend/internal/repositories"
+	"backend/internal/services"
 
 	"github.com/gin-gonic/gin"
 	"github.com/supabase-community/supabase-go"
