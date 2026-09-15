@@ -1,0 +1,45 @@
+# Go build and binary files
+/bin/
+/build/
+/dist/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Dependency and cache folders
+vendor/
+.DS_Store
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+Thumbs.db
+.DS_Store
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Logs and runtime files
+*.log
+*.pid
+/tmp/
+
+# Supabase local artifacts
+supabase/.branches
+supabase/.temp
+supabase/.env
+
+# Optional: ignore generated folders
+coverage/
+
