@@ -11,9 +11,9 @@ var (
 )
 
 type ProductRepository interface {
-	CreateProduct(ctx context.Context, req *models.CreateProductRequest) (*models.Product, error)
+	CreateProduct(ctx context.Context, req *models.CreateProduct) (*models.Product, error)
 	GetAllProducts(ctx context.Context) ([]models.Product, error)
 	GetProductByID(ctx context.Context, id int64) (*models.Product, error)
-	UpdateProduct(ctx context.Context, id int64, req *models.UpdateProductRequest) (*models.Product, error)
+	UpdateProduct(ctx context.Context, id int64, req *models.UpdateProduct) (*models.Product, error)
 	DeleteProduct(ctx context.Context, id int64) error
 }

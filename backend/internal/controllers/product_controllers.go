@@ -7,8 +7,9 @@ import (
 
 	"go.uber.org/zap"
 
+	"backend/internal/dto"
 	"backend/internal/logger"
-	"backend/internal/models"
+	"backend/internal/mappers"
 	"backend/internal/repositories"
 	"backend/internal/services"
 	"backend/internal/utils"
@@ -27,7 +28,7 @@ func NewProductController(service services.ProductService) *ProductController {
 }
 
 func (ctrl *ProductController) CreateProduct(c *gin.Context) {
-	var req models.CreateProductRequest
+	var req dto.CreateProductRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
 
 		logger.Log.Warn(
@@ -39,7 +40,9 @@ func (ctrl *ProductController) CreateProduct(c *gin.Context) {
 		return
 	}
 
-	product, err := ctrl.service.CreateProduct(c.Request.Context(), &req)
+	productModel := mappers.ToProduct(&req)
+
+	product, err := ctrl.service.CreateProduct(c.Request.Context(), productModel)
 	if err != nil {
 		if errors.Is(err, services.ErrEmptyProductName) ||
 			errors.Is(err, services.ErrEmptyBrand) ||
@@ -152,7 +155,7 @@ func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
 		return
 	}
 
-	var req models.UpdateProductRequest
+	var req dto.UpdateProductRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
 
 		logger.Log.Warn(
@@ -164,7 +167,9 @@ func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
 		return
 	}
 
-	updatedProduct, err := ctrl.service.UpdateProduct(c.Request.Context(), id, &req)
+	updatedProductModel := mappers.ToUpdateProduct(&req)
+
+	updatedProduct, err := ctrl.service.UpdateProduct(c.Request.Context(), id, updatedProductModel)
 	if err != nil {
 		if errors.Is(err, repositories.ErrProductNotFound) {
 

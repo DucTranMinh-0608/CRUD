@@ -8,10 +8,10 @@ import (
 )
 
 type ProductService interface {
-	CreateProduct(ctx context.Context, req *models.CreateProductRequest) (*models.Product, error)
+	CreateProduct(ctx context.Context, req *models.CreateProduct) (*models.Product, error)
 	GetAllProducts(ctx context.Context) ([]models.Product, error)
 	GetProductByID(ctx context.Context, id int64) (*models.Product, error)
-	UpdateProduct(ctx context.Context, id int64, req *models.UpdateProductRequest) (*models.Product, error)
+	UpdateProduct(ctx context.Context, id int64, req *models.UpdateProduct) (*models.Product, error)
 	DeleteProduct(ctx context.Context, id int64) error
 }
 
@@ -25,7 +25,7 @@ func NewProductService(repo repositories.ProductRepository) ProductService {
 	}
 }
 
-func (s *productService) CreateProduct(ctx context.Context, req *models.CreateProductRequest) (*models.Product, error) {
+func (s *productService) CreateProduct(ctx context.Context, req *models.CreateProduct) (*models.Product, error) {
 	req.TenMay = strings.TrimSpace(req.TenMay)
 	req.Hang = strings.TrimSpace(req.Hang)
 	req.TrangThai = strings.TrimSpace(req.TrangThai)
@@ -60,7 +60,7 @@ func (s *productService) GetProductByID(ctx context.Context, id int64) (*models.
 	return s.repo.GetProductByID(ctx, id)
 }
 
-func (s *productService) UpdateProduct(ctx context.Context, id int64, req *models.UpdateProductRequest) (*models.Product, error) {
+func (s *productService) UpdateProduct(ctx context.Context, id int64, req *models.UpdateProduct) (*models.Product, error) {
 	if id <= 0 {
 		return nil, repositories.ErrProductNotFound
 	}

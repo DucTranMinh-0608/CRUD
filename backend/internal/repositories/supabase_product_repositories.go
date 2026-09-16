@@ -22,7 +22,7 @@ func NewSupabaseProductRepository(client *supabase.Client) *SupabaseProductRepos
 	}
 }
 
-func (r *SupabaseProductRepository) CreateProduct(ctx context.Context, req *models.CreateProductRequest) (*models.Product, error) {
+func (r *SupabaseProductRepository) CreateProduct(ctx context.Context, req *models.CreateProduct) (*models.Product, error) {
 	data, _, err := r.client.From("products").
 		Insert(req, false, "", "representation", "").
 		ExecuteWithContext(ctx)
@@ -45,7 +45,7 @@ func (r *SupabaseProductRepository) CreateProduct(ctx context.Context, req *mode
 func (r *SupabaseProductRepository) GetAllProducts(ctx context.Context) ([]models.Product, error) {
 	data, _, err := r.client.From("products").
 		Select("*", "", false).
-		Order("id", &postgrest.OrderOpts{Ascending: false}).
+		Order("ID", &postgrest.OrderOpts{Ascending: false}).
 		ExecuteWithContext(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch products: %w", err)
@@ -62,7 +62,7 @@ func (r *SupabaseProductRepository) GetAllProducts(ctx context.Context) ([]model
 func (r *SupabaseProductRepository) GetProductByID(ctx context.Context, id int64) (*models.Product, error) {
 	data, _, err := r.client.From("products").
 		Select("*", "", false).
-		Eq("id", strconv.FormatInt(id, 10)).
+		Eq("ID", strconv.FormatInt(id, 10)).
 		ExecuteWithContext(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch product by id: %w", err)
@@ -80,28 +80,28 @@ func (r *SupabaseProductRepository) GetProductByID(ctx context.Context, id int64
 	return &products[0], nil
 }
 
-func (r *SupabaseProductRepository) UpdateProduct(ctx context.Context, id int64, req *models.UpdateProductRequest) (*models.Product, error) {
+func (r *SupabaseProductRepository) UpdateProduct(ctx context.Context, id int64, req *models.UpdateProduct) (*models.Product, error) {
 	updates := map[string]interface{}{}
 
 	if req.TenMay != nil {
-		updates["ten_may"] = *req.TenMay
+		updates["TenMay"] = *req.TenMay
 	}
 	if req.Hang != nil {
-		updates["hang"] = *req.Hang
+		updates["Hang"] = *req.Hang
 	}
 	if req.SoLuong != nil {
-		updates["so_luong"] = *req.SoLuong
+		updates["SoLuong"] = *req.SoLuong
 	}
 	if req.MoTa != nil {
-		updates["mo_ta"] = *req.MoTa
+		updates["MoTa"] = *req.MoTa
 	}
 	if req.TrangThai != nil {
-		updates["trang_thai"] = *req.TrangThai
+		updates["TrangThai"] = *req.TrangThai
 	}
 
 	data, _, err := r.client.From("products").
 		Update(updates, "representation", "").
-		Eq("id", strconv.FormatInt(id, 10)).
+		Eq("ID", strconv.FormatInt(id, 10)).
 		ExecuteWithContext(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("failed to update product: %w", err)
@@ -122,7 +122,7 @@ func (r *SupabaseProductRepository) UpdateProduct(ctx context.Context, id int64,
 func (r *SupabaseProductRepository) DeleteProduct(ctx context.Context, id int64) error {
 	data, _, err := r.client.From("products").
 		Delete("representation", "").
-		Eq("id", strconv.FormatInt(id, 10)).
+		Eq("ID", strconv.FormatInt(id, 10)).
 		ExecuteWithContext(ctx)
 	if err != nil {
 		return fmt.Errorf("failed to delete product: %w", err)
