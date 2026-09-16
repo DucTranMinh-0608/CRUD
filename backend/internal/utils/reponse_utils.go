@@ -7,7 +7,7 @@ import (
 )
 
 func InvalidDataResponse(c *gin.Context, err error) {
-	c.JSON(http.StatusOK, gin.H{
+	c.JSON(http.StatusBadRequest, gin.H{
 		"Message": "Dữ liệu không hợp lệ",
 		"Error":   err.Error(),
 	})
