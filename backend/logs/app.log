@@ -1,0 +1,86 @@
+{"level":"info","ts":1789448567.21574,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789448604.7329156,"msg":"Tìm thấy sản phẩm với ID đã cung cấp","id":4}
+{"level":"info","ts":1789448641.5766315,"msg":"Tìm thấy sản phẩm với ID đã cung cấp","id":10}
+{"level":"warn","ts":1789448703.1893773,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"số lượng không được nhỏ hơn 0"}
+{"level":"warn","ts":1789448828.177679,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"số lượng không được nhỏ hơn 0"}
+{"level":"warn","ts":1789448835.7020168,"msg":"Không tìm thấy sản phẩm để cập nhật","id":45,"error":"product not found"}
+{"level":"info","ts":1789449323.9995904,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"warn","ts":1789449329.9013925,"msg":"Không tìm thấy sản phẩm để cập nhật","id":45,"error":"product not found"}
+{"level":"info","ts":1789449337.0572524,"msg":"Cập nhật sản phẩm thành công","id":3}
+{"level":"info","ts":1789481933.9303524,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"warn","ts":1789481988.8895326,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"số lượng không được nhỏ hơn 0"}
+{"level":"error","ts":1789481988.8895326,"msg":"Lỗi hệ thống khi tạo sản phẩm","error":"số lượng không được nhỏ hơn 0"}
+{"level":"warn","ts":1789482029.8871467,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"số lượng không được nhỏ hơn 0"}
+{"level":"error","ts":1789482029.8871467,"msg":"Lỗi hệ thống khi tạo sản phẩm","error":"số lượng không được nhỏ hơn 0"}
+{"level":"info","ts":1789482075.828481,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"warn","ts":1789482080.9692566,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"số lượng không được nhỏ hơn 0"}
+{"level":"warn","ts":1789482101.421128,"msg":"Dữ liệu gửi lên không hợp lệ","error":"invalid character '}' looking for beginning of object key string"}
+{"level":"warn","ts":1789482106.6650343,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.TrangThai' Error:Field validation for 'TrangThai' failed on the 'required' tag"}
+{"level":"info","ts":1789483283.339725,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789483293.810786,"msg":"Tạo sản phẩm thành công","product_id":25}
+{"level":"info","ts":1789483392.5516496,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789483400.1772425,"msg":"Tạo sản phẩm thành công","product_id":26}
+{"level":"info","ts":1789483412.429746,"msg":"Lấy danh sách sản phẩm thành công","count":17}
+{"level":"info","ts":1789484572.0179257,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789484582.1007419,"msg":"Tạo sản phẩm thành công","product_id":27}
+{"level":"warn","ts":1789484587.4738033,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"số lượng không được nhỏ hơn 0"}
+{"level":"error","ts":1789484602.259957,"msg":"Lỗi hệ thống khi tạo sản phẩm","error":"trạng thái không hợp lệ"}
+{"level":"info","ts":1789484610.748401,"msg":"Tạo sản phẩm thành công","product_id":28}
+{"level":"info","ts":1789484616.4545715,"msg":"Lấy danh sách sản phẩm thành công","count":19}
+{"level":"warn","ts":1789484624.5546563,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":1555,"error":"product not found"}
+{"level":"warn","ts":1789484650.3288343,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"a\": invalid syntax"}
+{"level":"warn","ts":1789484695.8511937,"msg":"Không tìm thấy sản phẩm để cập nhật","id":100,"error":"product not found"}
+{"level":"warn","ts":1789484699.833317,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"a\": invalid syntax"}
+{"level":"info","ts":1789484711.097824,"msg":"Cập nhật sản phẩm thành công","id":12}
+{"level":"error","ts":1789484715.2891395,"msg":"Lỗi hệ thống khi cập nhật sản phẩm","error":"trạng thái không hợp lệ"}
+{"level":"info","ts":1789484726.516901,"msg":"Cập nhật sản phẩm thành công","id":12}
+{"level":"info","ts":1789484756.1112869,"msg":"Cập nhật sản phẩm thành công","id":12}
+{"level":"info","ts":1789484765.773688,"msg":"Cập nhật sản phẩm thành công","id":12}
+{"level":"info","ts":1789484776.6911333,"msg":"Cập nhật sản phẩm thành công","id":12}
+{"level":"warn","ts":1789484804.6279275,"msg":"Không tìm thấy sản phẩm để xóa","error":"product not found"}
+{"level":"info","ts":1789484810.6811047,"msg":"Xóa sản phẩm thành công","id":10}
+{"level":"info","ts":1789525902.9412372,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789525926.3917544,"msg":"Lấy danh sách sản phẩm thành công","count":18}
+{"level":"info","ts":1789525962.050536,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789525974.106885,"msg":"Lấy danh sách sản phẩm thành công","count":18}
+{"level":"info","ts":1789526123.1116004,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789526186.404254,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"error","ts":1789526243.039423,"msg":"Lỗi hệ thống khi tạo sản phẩm","error":"failed to create product: (PGRST204) Could not find the 'CreatedAt' column of 'products' in the schema cache"}
+{"level":"info","ts":1789526557.7989233,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"error","ts":1789526564.2418358,"msg":"Lỗi hệ thống khi tạo sản phẩm","error":"failed to create product: (PGRST204) Could not find the 'Created_At' column of 'products' in the schema cache"}
+{"level":"error","ts":1789526644.9337838,"msg":"Lỗi hệ thống khi tạo sản phẩm","error":"failed to create product: (PGRST204) Could not find the 'Hang' column of 'products' in the schema cache"}
+{"level":"error","ts":1789526884.1124072,"msg":"Lỗi hệ thống khi tạo sản phẩm","error":"failed to create product: (22007) invalid input syntax for type timestamp with time zone: \"\""}
+{"level":"info","ts":1789527320.2415104,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"error","ts":1789527334.8455613,"msg":"Lỗi hệ thống khi tạo sản phẩm","error":"failed to create product: (PGRST204) Could not find the 'Mota' column of 'products' in the schema cache"}
+{"level":"info","ts":1789527553.561412,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789527559.7085812,"msg":"Tạo sản phẩm thành công","product_id":29}
+{"level":"error","ts":1789527618.5580125,"msg":"Lỗi hệ thống khi lấy danh sách sản phẩm","error":"failed to fetch products: (42703) column products.id does not exist"}
+{"level":"info","ts":1789527741.890006,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"error","ts":1789527741.8916335,"msg":"Không thể khởi chạy HTTP server","error":"listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted."}
+{"level":"info","ts":1789527780.4247777,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789527802.2735183,"msg":"Tạo sản phẩm thành công","product_id":30}
+{"level":"info","ts":1789527802.702952,"msg":"Lấy danh sách sản phẩm thành công","count":20}
+{"level":"info","ts":1789527802.854434,"msg":"Tìm thấy sản phẩm với ID đã cung cấp","id":30}
+{"level":"error","ts":1789527803.0231044,"msg":"Lỗi hệ thống khi cập nhật sản phẩm","error":"failed to update product: (42703) record \"new\" has no field \"updated_at\""}
+{"level":"info","ts":1789527803.2512994,"msg":"Xóa sản phẩm thành công","id":30}
+{"level":"info","ts":1789527841.9147317,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789527862.451301,"msg":"Tạo sản phẩm thành công","product_id":31}
+{"level":"info","ts":1789527862.644494,"msg":"Lấy danh sách sản phẩm thành công","count":20}
+{"level":"info","ts":1789527862.767149,"msg":"Tìm thấy sản phẩm với ID đã cung cấp","id":31}
+{"level":"error","ts":1789527862.9038968,"msg":"Lỗi hệ thống khi cập nhật sản phẩm","error":"failed to update product: (42703) record \"new\" has no field \"updated_at\""}
+{"level":"info","ts":1789527863.3430033,"msg":"Xóa sản phẩm thành công","id":31}
+{"level":"info","ts":1789527932.6467886,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789527953.840143,"msg":"Tạo sản phẩm thành công","product_id":32}
+{"level":"info","ts":1789527954.108089,"msg":"Lấy danh sách sản phẩm thành công","count":20}
+{"level":"info","ts":1789527954.5995176,"msg":"Tìm thấy sản phẩm với ID đã cung cấp","id":32}
+{"level":"info","ts":1789527954.7639122,"msg":"Cập nhật sản phẩm thành công","id":32}
+{"level":"info","ts":1789527954.9047406,"msg":"Xóa sản phẩm thành công","id":32}
+{"level":"info","ts":1789527978.2915866,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"error","ts":1789527978.2932272,"msg":"Không thể khởi chạy HTTP server","error":"listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted."}
+{"level":"info","ts":1789527990.8062723,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789527995.7213027,"msg":"Lấy danh sách sản phẩm thành công","count":19}
+{"level":"info","ts":1789528005.595032,"msg":"Lấy danh sách sản phẩm thành công","count":19}
+{"level":"info","ts":1789528018.5021005,"msg":"Tìm thấy sản phẩm với ID đã cung cấp","id":20}
+{"level":"warn","ts":1789528027.1873004,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":45,"error":"product not found"}
+{"level":"warn","ts":1789528039.2284272,"msg":"Không tìm thấy sản phẩm để cập nhật","id":10,"error":"product not found"}
+{"level":"info","ts":1789528046.8322432,"msg":"Cập nhật sản phẩm thành công","id":15}
