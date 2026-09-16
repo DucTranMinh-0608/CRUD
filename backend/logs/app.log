@@ -133,3 +133,8 @@
 {"level":"warn","ts":1789532552.517345,"msg":"Không tìm thấy sản phẩm để xóa","error":"product not found"}
 {"level":"warn","ts":1789532552.526956,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"abc\": invalid syntax"}
 {"level":"warn","ts":1789532552.530202,"msg":"Không tìm thấy sản phẩm để xóa","error":"product not found"}
+{"level":"info","ts":1789534790.3812056,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789534802.7408023,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"warn","ts":1789534827.1981235,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":10,"error":"product not found"}
+{"level":"info","ts":1789534838.623766,"msg":"Tìm thấy sản phẩm với ID đã cung cấp","id":15}
+{"level":"warn","ts":1789534857.4907012,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"số lượng không được nhỏ hơn 0"}
