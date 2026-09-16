@@ -1,6 +1,8 @@
 package services
 
 import (
+	"backend/internal/dto"
+	"backend/internal/mappers"
 	"backend/internal/models"
 	"backend/internal/repositories"
 	"context"
@@ -8,10 +10,10 @@ import (
 )
 
 type ProductService interface {
-	CreateProduct(ctx context.Context, req *models.CreateProduct) (*models.Product, error)
-	GetAllProducts(ctx context.Context) ([]models.Product, error)
-	GetProductByID(ctx context.Context, id int64) (*models.Product, error)
-	UpdateProduct(ctx context.Context, id int64, req *models.UpdateProduct) (*models.Product, error)
+	CreateProduct(ctx context.Context, req *models.CreateProduct) (*dto.ProductResponse, error)
+	GetAllProducts(ctx context.Context) ([]dto.ProductResponse, error)
+	GetProductByID(ctx context.Context, id int64) (*dto.ProductResponse, error)
+	UpdateProduct(ctx context.Context, id int64, req *models.UpdateProduct) (*dto.ProductResponse, error)
 	DeleteProduct(ctx context.Context, id int64) error
 }
 
@@ -25,7 +27,7 @@ func NewProductService(repo repositories.ProductRepository) ProductService {
 	}
 }
 
-func (s *productService) CreateProduct(ctx context.Context, req *models.CreateProduct) (*models.Product, error) {
+func (s *productService) CreateProduct(ctx context.Context, req *models.CreateProduct) (*dto.ProductResponse, error) {
 	req.TenMay = strings.TrimSpace(req.TenMay)
 	req.Hang = strings.TrimSpace(req.Hang)
 	req.TrangThai = strings.TrimSpace(req.TrangThai)
@@ -46,21 +48,38 @@ func (s *productService) CreateProduct(ctx context.Context, req *models.CreatePr
 		return nil, ErrInvalidStatus
 	}
 
-	return s.repo.CreateProduct(ctx, req)
+	product, err := s.repo.CreateProduct(ctx, req)
+	if err != nil {
+		return nil, err
+	}
+	return mappers.ToPorductReponse(product), nil
 }
 
-func (s *productService) GetAllProducts(ctx context.Context) ([]models.Product, error) {
-	return s.repo.GetAllProducts(ctx)
+func (s *productService) GetAllProducts(ctx context.Context) ([]dto.ProductResponse, error) {
+	products, err := s.repo.GetAllProducts(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	responses := make([]dto.ProductResponse, 0, len(products))
+	for _, p := range products {
+		responses = append(responses, *mappers.ToPorductReponse(&p))
+	}
+	return responses, nil
 }
 
-func (s *productService) GetProductByID(ctx context.Context, id int64) (*models.Product, error) {
+func (s *productService) GetProductByID(ctx context.Context, id int64) (*dto.ProductResponse, error) {
 	if id <= 0 {
 		return nil, repositories.ErrProductNotFound
 	}
-	return s.repo.GetProductByID(ctx, id)
+	product, err := s.repo.GetProductByID(ctx, id)
+	if err != nil {
+		return nil, err
+	}
+	return mappers.ToPorductReponse(product), nil
 }
 
-func (s *productService) UpdateProduct(ctx context.Context, id int64, req *models.UpdateProduct) (*models.Product, error) {
+func (s *productService) UpdateProduct(ctx context.Context, id int64, req *models.UpdateProduct) (*dto.ProductResponse, error) {
 	if id <= 0 {
 		return nil, repositories.ErrProductNotFound
 	}
@@ -87,7 +106,11 @@ func (s *productService) UpdateProduct(ctx context.Context, id int64, req *model
 		return nil, ErrInvalidStatus
 	}
 
-	return s.repo.UpdateProduct(ctx, id, req)
+	product, err := s.repo.UpdateProduct(ctx, id, req)
+	if err != nil {
+		return nil, err
+	}
+	return mappers.ToPorductReponse(product), nil
 }
 
 func (s *productService) DeleteProduct(ctx context.Context, id int64) error {

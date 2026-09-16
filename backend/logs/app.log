@@ -84,3 +84,6 @@
 {"level":"warn","ts":1789528027.1873004,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":45,"error":"product not found"}
 {"level":"warn","ts":1789528039.2284272,"msg":"Không tìm thấy sản phẩm để cập nhật","id":10,"error":"product not found"}
 {"level":"info","ts":1789528046.8322432,"msg":"Cập nhật sản phẩm thành công","id":15}
+{"level":"info","ts":1789530216.5206778,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789530223.9633498,"msg":"Cập nhật sản phẩm thành công","id":15}
+{"level":"info","ts":1789530237.6129165,"msg":"Lấy danh sách sản phẩm thành công","count":19}

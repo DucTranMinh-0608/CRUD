@@ -15,3 +15,12 @@ type UpdateProductRequest struct {
 	MoTa      *string `json:"mo_ta"`
 	TrangThai *string `json:"trang_thai"`
 }
+
+type ProductResponse struct {
+	ID        int64  `json:"id"`
+	TenMay    string `json:"ten_may"`
+	Hang      string `json:"hang"`
+	MoTa      string `json:"mo_ta"`
+	SoLuong   int    `json:"so_luong"`
+	TrangThai string `json:"trang_thai"`
+}

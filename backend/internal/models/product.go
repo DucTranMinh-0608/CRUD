@@ -26,4 +26,3 @@ type UpdateProduct struct {
 	SoLuong   *int
 	TrangThai *string
 }
-

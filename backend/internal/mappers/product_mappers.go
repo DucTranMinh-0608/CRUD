@@ -24,3 +24,14 @@ func ToUpdateProduct(req *dto.UpdateProductRequest) *models.UpdateProduct {
 		TrangThai: req.TrangThai,
 	}
 }
+
+func ToPorductReponse(req *models.Product) *dto.ProductResponse {
+	return &dto.ProductResponse{
+		ID:        req.ID,
+		TenMay:    req.TenMay,
+		Hang:      req.Hang,
+		MoTa:      req.MoTa,
+		SoLuong:   req.SoLuong,
+		TrangThai: req.TrangThai,
+	}
+}
