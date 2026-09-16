@@ -87,3 +87,49 @@
 {"level":"info","ts":1789530216.5206778,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
 {"level":"info","ts":1789530223.9633498,"msg":"Cập nhật sản phẩm thành công","id":15}
 {"level":"info","ts":1789530237.6129165,"msg":"Lấy danh sách sản phẩm thành công","count":19}
+{"level":"info","ts":1789530312.7163703,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789530333.2902243,"msg":"Tạo sản phẩm thành công","product_id":33}
+{"level":"info","ts":1789530340.8738298,"msg":"Lấy danh sách sản phẩm thành công","count":20}
+{"level":"info","ts":1789530350.3355176,"msg":"Tìm thấy sản phẩm với ID đã cung cấp","id":33}
+{"level":"info","ts":1789530358.9737387,"msg":"Cập nhật sản phẩm thành công","id":33}
+{"level":"info","ts":1789530365.0064073,"msg":"Xóa sản phẩm thành công","id":33}
+{"level":"info","ts":1789531048.8694768,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"error","ts":1789531048.8710964,"msg":"Không thể khởi chạy HTTP server","error":"listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted."}
+{"level":"info","ts":1789531056.2036288,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789531068.5916474,"msg":"Lấy danh sách sản phẩm thành công","count":19}
+{"level":"warn","ts":1789531096.3746984,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":10,"error":"product not found"}
+{"level":"info","ts":1789531123.3813179,"msg":"Tạo sản phẩm thành công","product_id":34}
+{"level":"warn","ts":1789531149.3415563,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"số lượng không được nhỏ hơn 0"}
+{"level":"warn","ts":1789531178.023549,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":10,"error":"product not found"}
+{"level":"info","ts":1789531181.799086,"msg":"Tìm thấy sản phẩm với ID đã cung cấp","id":15}
+{"level":"info","ts":1789531948.5144646,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789531957.0430663,"msg":"Tìm thấy sản phẩm với ID đã cung cấp","id":15}
+{"level":"info","ts":1789532211.2206314,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789532224.781864,"msg":"Tìm thấy sản phẩm với ID đã cung cấp","id":15}
+{"level":"info","ts":1789532233.2672558,"msg":"Lấy danh sách sản phẩm thành công","count":20}
+{"level":"warn","ts":1789532238.2464645,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":10,"error":"product not found"}
+{"level":"info","ts":1789532291.7950325,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789532467.022958,"msg":"Tạo sản phẩm thành công","product_id":35}
+{"level":"info","ts":1789532479.1140661,"msg":"Tạo sản phẩm thành công","product_id":36}
+{"level":"warn","ts":1789532490.4107988,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.TenMay' Error:Field validation for 'TenMay' failed on the 'required' tag"}
+{"level":"warn","ts":1789532490.4335241,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.Hang' Error:Field validation for 'Hang' failed on the 'required' tag"}
+{"level":"warn","ts":1789532490.4379132,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"số lượng không được nhỏ hơn 0"}
+{"level":"error","ts":1789532490.4421911,"msg":"Lỗi hệ thống khi tạo sản phẩm","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789532499.0774322,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.SoLuong' Error:Field validation for 'SoLuong' failed on the 'required' tag"}
+{"level":"info","ts":1789532499.6671386,"msg":"Tạo sản phẩm thành công","product_id":37}
+{"level":"info","ts":1789532526.674999,"msg":"Lấy danh sách sản phẩm thành công","count":23}
+{"level":"info","ts":1789532526.965929,"msg":"Tìm thấy sản phẩm với ID đã cung cấp","id":36}
+{"level":"warn","ts":1789532527.1121879,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":9999,"error":"product not found"}
+{"level":"warn","ts":1789532527.120999,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"abc\": invalid syntax"}
+{"level":"info","ts":1789532542.2627919,"msg":"Cập nhật sản phẩm thành công","id":36}
+{"level":"info","ts":1789532542.4528077,"msg":"Cập nhật sản phẩm thành công","id":37}
+{"level":"warn","ts":1789532542.456387,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"tên máy không được để trống"}
+{"level":"error","ts":1789532542.4670854,"msg":"Lỗi hệ thống khi cập nhật sản phẩm","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789532542.4715867,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"số lượng không được nhỏ hơn 0"}
+{"level":"warn","ts":1789532542.5978053,"msg":"Không tìm thấy sản phẩm để cập nhật","id":9999,"error":"product not found"}
+{"level":"info","ts":1789532552.091975,"msg":"Xóa sản phẩm thành công","id":36}
+{"level":"info","ts":1789532552.2753458,"msg":"Xóa sản phẩm thành công","id":37}
+{"level":"info","ts":1789532552.395337,"msg":"Xóa sản phẩm thành công","id":35}
+{"level":"warn","ts":1789532552.517345,"msg":"Không tìm thấy sản phẩm để xóa","error":"product not found"}
+{"level":"warn","ts":1789532552.526956,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"abc\": invalid syntax"}
+{"level":"warn","ts":1789532552.530202,"msg":"Không tìm thấy sản phẩm để xóa","error":"product not found"}

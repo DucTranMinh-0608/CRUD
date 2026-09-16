@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"errors"
-	"net/http"
+	//"net/http"
 	"strconv"
 
 	"go.uber.org/zap"
@@ -36,7 +36,7 @@ func (ctrl *ProductController) CreateProduct(c *gin.Context) {
 			zap.Error(err),
 		)
 
-		utils.InvalidDataResponse(c, http.StatusBadRequest, err)
+		utils.InvalidDataResponse(c, err)
 		return
 	}
 
@@ -53,7 +53,7 @@ func (ctrl *ProductController) CreateProduct(c *gin.Context) {
 				zap.Error(err),
 			)
 
-			utils.InvalidDataResponse(c, http.StatusBadRequest, err)
+			utils.InvalidDataResponse(c, err)
 			return
 		}
 
@@ -62,7 +62,7 @@ func (ctrl *ProductController) CreateProduct(c *gin.Context) {
 			zap.Error(err),
 		)
 
-		utils.NoConnectDataResponse(c, http.StatusBadRequest, err)
+		utils.NoConnectDataResponse(c, err)
 		return
 	}
 
@@ -71,7 +71,7 @@ func (ctrl *ProductController) CreateProduct(c *gin.Context) {
 		zap.Any("product_id", product.ID),
 	)
 
-	utils.SuccessResponse(c, http.StatusOK, "Tạo sản phẩm", product)
+	utils.SuccessResponse(c, "Tạo sản phẩm", product)
 }
 
 func (ctrl *ProductController) GetAllProducts(c *gin.Context) {
@@ -83,7 +83,7 @@ func (ctrl *ProductController) GetAllProducts(c *gin.Context) {
 			zap.Error(err),
 		)
 
-		utils.NoConnectDataResponse(c, http.StatusBadRequest, err)
+		utils.NoConnectDataResponse(c, err)
 		return
 	}
 
@@ -92,7 +92,7 @@ func (ctrl *ProductController) GetAllProducts(c *gin.Context) {
 		zap.Any("count", len(products)),
 	)
 
-	utils.SuccessResponse(c, http.StatusOK, "Lấy sản phẩm", products)
+	utils.SuccessResponse(c, "Lấy sản phẩm", products)
 }
 
 func (ctrl *ProductController) GetProductByID(c *gin.Context) {
@@ -105,7 +105,7 @@ func (ctrl *ProductController) GetProductByID(c *gin.Context) {
 			zap.Error(err),
 		)
 
-		utils.InvalidDataResponse(c, http.StatusBadRequest, err)
+		utils.InvalidDataResponse(c, err)
 		return
 	}
 
@@ -120,7 +120,7 @@ func (ctrl *ProductController) GetProductByID(c *gin.Context) {
 				zap.Error(err),
 			)
 
-			utils.InvalidDataResponse(c, http.StatusBadRequest, err)
+			utils.NotFoundDataResponse(c, err)
 			return
 		}
 
@@ -129,7 +129,7 @@ func (ctrl *ProductController) GetProductByID(c *gin.Context) {
 			zap.Error(err),
 		)
 
-		utils.NoConnectDataResponse(c, http.StatusBadRequest, err)
+		utils.NoConnectDataResponse(c, err)
 		return
 	}
 
@@ -138,7 +138,7 @@ func (ctrl *ProductController) GetProductByID(c *gin.Context) {
 		zap.Int64("id", id),
 	)
 
-	utils.SuccessResponse(c, http.StatusOK, "Lấy sản phẩm", product)
+	utils.SuccessResponse(c, "Lấy sản phẩm", product)
 }
 
 func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
@@ -151,7 +151,7 @@ func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
 			zap.Error(err),
 		)
 
-		utils.InvalidDataResponse(c, http.StatusBadRequest, err)
+		utils.InvalidDataResponse(c, err)
 		return
 	}
 
@@ -163,7 +163,7 @@ func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
 			zap.Error(err),
 		)
 
-		utils.InvalidDataResponse(c, http.StatusBadRequest, err)
+		utils.InvalidDataResponse(c, err)
 		return
 	}
 
@@ -179,7 +179,7 @@ func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
 				zap.Error(err),
 			)
 
-			utils.InvalidDataResponse(c, http.StatusBadRequest, err)
+			utils.NotFoundDataResponse(c, err)
 			return
 		}
 
@@ -192,7 +192,7 @@ func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
 				zap.Error(err),
 			)
 
-			utils.InvalidDataResponse(c, http.StatusBadRequest, err)
+			utils.InvalidDataResponse(c, err)
 			return
 		}
 
@@ -201,7 +201,7 @@ func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
 			zap.Error(err),
 		)
 
-		utils.NoConnectDataResponse(c, http.StatusBadRequest, err)
+		utils.NoConnectDataResponse(c, err)
 		return
 	}
 
@@ -210,7 +210,7 @@ func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
 		zap.Int64("id", id),
 	)
 
-	utils.SuccessResponse(c, http.StatusOK, "Cập nhật sản phẩm", updatedProduct)
+	utils.SuccessResponse(c, "Cập nhật sản phẩm", updatedProduct)
 }
 
 func (ctrl *ProductController) DeleteProduct(c *gin.Context) {
@@ -223,7 +223,7 @@ func (ctrl *ProductController) DeleteProduct(c *gin.Context) {
 			zap.Error(err),
 		)
 
-		utils.InvalidDataResponse(c, http.StatusBadRequest, err)
+		utils.InvalidDataResponse(c, err)
 		return
 	}
 
@@ -236,7 +236,7 @@ func (ctrl *ProductController) DeleteProduct(c *gin.Context) {
 				zap.Error(err),
 			)
 
-			utils.InvalidDataResponse(c, http.StatusBadRequest, err)
+			utils.NotFoundDataResponse(c, err)
 			return
 		}
 
@@ -245,7 +245,7 @@ func (ctrl *ProductController) DeleteProduct(c *gin.Context) {
 			zap.Error(err),
 		)
 
-		utils.NoConnectDataResponse(c, http.StatusBadRequest, err)
+		utils.NoConnectDataResponse(c, err)
 		return
 	}
 
@@ -254,5 +254,5 @@ func (ctrl *ProductController) DeleteProduct(c *gin.Context) {
 		zap.Int64("id", id),
 	)
 
-	utils.SuccessResponse(c, http.StatusOK, "Xoá sản phẩm", nil)
+	utils.SuccessResponse(c, "Xoá sản phẩm", nil)
 }
