@@ -6,10 +6,14 @@ import (
 )
 
 func ToProduct(req *dto.CreateProductRequest) *models.CreateProduct {
+	var soLuong int
+	if req.SoLuong != nil {
+		soLuong = *req.SoLuong
+	}
 	return &models.CreateProduct{
 		TenMay:    req.TenMay,
 		Hang:      req.Hang,
-		SoLuong:   req.SoLuong,
+		SoLuong:   soLuong,
 		MoTa:      req.MoTa,
 		TrangThai: req.TrangThai,
 	}
@@ -25,7 +29,7 @@ func ToUpdateProduct(req *dto.UpdateProductRequest) *models.UpdateProduct {
 	}
 }
 
-func ToPorductReponse(req *models.Product) *dto.ProductResponse {
+func ToProductResponse(req *models.Product) *dto.ProductResponse {
 	return &dto.ProductResponse{
 		ID:        req.ID,
 		TenMay:    req.TenMay,

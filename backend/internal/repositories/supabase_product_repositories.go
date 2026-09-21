@@ -99,6 +99,10 @@ func (r *SupabaseProductRepository) UpdateProduct(ctx context.Context, id int64,
 		updates["TrangThai"] = *req.TrangThai
 	}
 
+	if len(updates) == 0 {
+		return r.GetProductByID(ctx, id)
+	}
+
 	data, _, err := r.client.From("products").
 		Update(updates, "representation", "").
 		Eq("ID", strconv.FormatInt(id, 10)).
@@ -119,23 +123,23 @@ func (r *SupabaseProductRepository) UpdateProduct(ctx context.Context, id int64,
 	return &products[0], nil
 }
 
-func (r *SupabaseProductRepository) DeleteProduct(ctx context.Context, id int64) error {
-	data, _, err := r.client.From("products").
-		Delete("representation", "").
-		Eq("ID", strconv.FormatInt(id, 10)).
-		ExecuteWithContext(ctx)
-	if err != nil {
-		return fmt.Errorf("failed to delete product: %w", err)
-	}
+// func (r *SupabaseProductRepository) DeleteProduct(ctx context.Context, id int64) error {
+// 	data, _, err := r.client.From("products").
+// 		Delete("representation", "").
+// 		Eq("ID", strconv.FormatInt(id, 10)).
+// 		ExecuteWithContext(ctx)
+// 	if err != nil {
+// 		return fmt.Errorf("failed to delete product: %w", err)
+// 	}
 
-	var products []models.Product
-	if err := json.Unmarshal(data, &products); err != nil {
-		return fmt.Errorf("failed to decode delete result: %w", err)
-	}
+// 	var products []models.Product
+// 	if err := json.Unmarshal(data, &products); err != nil {
+// 		return fmt.Errorf("failed to decode delete result: %w", err)
+// 	}
 
-	if len(products) == 0 {
-		return ErrProductNotFound
-	}
+// 	if len(products) == 0 {
+// 		return ErrProductNotFound
+// 	}
 
-	return nil
-}
+// 	return nil
+// }

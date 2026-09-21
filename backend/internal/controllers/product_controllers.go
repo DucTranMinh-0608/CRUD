@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"errors"
-	//"net/http"
 	"strconv"
 
 	"go.uber.org/zap"
@@ -10,7 +9,6 @@ import (
 	"backend/internal/dto"
 	"backend/internal/logger"
 	"backend/internal/mappers"
-	"backend/internal/repositories"
 	"backend/internal/services"
 	"backend/internal/utils"
 
@@ -44,9 +42,9 @@ func (ctrl *ProductController) CreateProduct(c *gin.Context) {
 
 	product, err := ctrl.service.CreateProduct(c.Request.Context(), productModel)
 	if err != nil {
-		if errors.Is(err, services.ErrEmptyProductName) ||
-			errors.Is(err, services.ErrEmptyBrand) ||
-			errors.Is(err, services.ErrNegativeQuantity) {
+		if errors.Is(err, services.ErrEmpty) ||
+			errors.Is(err, services.ErrNegative) ||
+			errors.Is(err, services.ErrInvalidStatus) {
 
 			logger.Log.Warn(
 				"Dữ liệu tạo sản phẩm không hợp lệ",
@@ -71,7 +69,7 @@ func (ctrl *ProductController) CreateProduct(c *gin.Context) {
 		zap.Any("product_id", product.ID),
 	)
 
-	utils.SuccessResponse(c, "Tạo sản phẩm", product)
+	utils.SuccessResponse(c, "Tạo sản phẩm", mappers.ToProductResponse(product))
 }
 
 func (ctrl *ProductController) GetAllProducts(c *gin.Context) {
@@ -92,7 +90,11 @@ func (ctrl *ProductController) GetAllProducts(c *gin.Context) {
 		zap.Any("count", len(products)),
 	)
 
-	utils.SuccessResponse(c, "Lấy sản phẩm", products)
+	responses := make([]dto.ProductResponse, 0, len(products))
+	for _, p := range products {
+		responses = append(responses, *mappers.ToProductResponse(&p))
+	}
+	utils.SuccessResponse(c, "Lấy sản phẩm", responses)
 }
 
 func (ctrl *ProductController) GetProductByID(c *gin.Context) {
@@ -112,7 +114,7 @@ func (ctrl *ProductController) GetProductByID(c *gin.Context) {
 	product, err := ctrl.service.GetProductByID(c.Request.Context(), id)
 	if err != nil {
 
-		if errors.Is(err, repositories.ErrProductNotFound) {
+		if errors.Is(err, services.ErrProductNotFound) {
 
 			logger.Log.Warn(
 				"Không tìm thấy sản phẩm với ID đã cung cấp",
@@ -138,7 +140,7 @@ func (ctrl *ProductController) GetProductByID(c *gin.Context) {
 		zap.Int64("id", id),
 	)
 
-	utils.SuccessResponse(c, "Lấy sản phẩm", product)
+	utils.SuccessResponse(c, "Lấy sản phẩm", mappers.ToProductResponse(product))
 }
 
 func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
@@ -171,7 +173,7 @@ func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
 
 	updatedProduct, err := ctrl.service.UpdateProduct(c.Request.Context(), id, updatedProductModel)
 	if err != nil {
-		if errors.Is(err, repositories.ErrProductNotFound) {
+		if errors.Is(err, services.ErrProductNotFound) {
 
 			logger.Log.Warn(
 				"Không tìm thấy sản phẩm để cập nhật",
@@ -183,9 +185,9 @@ func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
 			return
 		}
 
-		if errors.Is(err, services.ErrEmptyProductName) ||
-			errors.Is(err, services.ErrEmptyBrand) ||
-			errors.Is(err, services.ErrNegativeQuantity) {
+		if errors.Is(err, services.ErrEmpty) ||
+			errors.Is(err, services.ErrNegative) ||
+			errors.Is(err, services.ErrInvalidStatus) {
 
 			logger.Log.Warn(
 				"Dữ liệu cập nhật sản phẩm không hợp lệ",
@@ -210,49 +212,49 @@ func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
 		zap.Int64("id", id),
 	)
 
-	utils.SuccessResponse(c, "Cập nhật sản phẩm", updatedProduct)
+	utils.SuccessResponse(c, "Cập nhật sản phẩm", mappers.ToProductResponse(updatedProduct))
 }
 
-func (ctrl *ProductController) DeleteProduct(c *gin.Context) {
-	idParam := c.Param("id")
-	id, err := strconv.ParseInt(idParam, 10, 64)
-	if err != nil {
+// func (ctrl *ProductController) DeleteProduct(c *gin.Context) {
+// 	idParam := c.Param("id")
+// 	id, err := strconv.ParseInt(idParam, 10, 64)
+// 	if err != nil {
 
-		logger.Log.Warn(
-			"ID sản phẩm không hợp lệ",
-			zap.Error(err),
-		)
+// 		logger.Log.Warn(
+// 			"ID sản phẩm không hợp lệ",
+// 			zap.Error(err),
+// 		)
 
-		utils.InvalidDataResponse(c, err)
-		return
-	}
+// 		utils.InvalidDataResponse(c, err)
+// 		return
+// 	}
 
-	if err := ctrl.service.DeleteProduct(c.Request.Context(), id); err != nil {
-		if errors.Is(err, repositories.ErrProductNotFound) {
+// 	if err := ctrl.service.DeleteProduct(c.Request.Context(), id); err != nil {
+// 		if errors.Is(err, services.ErrProductNotFound) {
 
-			logger.Log.Warn(
-				"Không tìm thấy sản phẩm để xóa",
-				//zap.Int64("id", id),
-				zap.Error(err),
-			)
+// 			logger.Log.Warn(
+// 				"Không tìm thấy sản phẩm để xóa",
+// 				//zap.Int64("id", id),
+// 				zap.Error(err),
+// 			)
 
-			utils.NotFoundDataResponse(c, err)
-			return
-		}
+// 			utils.NotFoundDataResponse(c, err)
+// 			return
+// 		}
 
-		logger.Log.Error(
-			"Lỗi hệ thống khi xóa sản phẩm",
-			zap.Error(err),
-		)
+// 		logger.Log.Error(
+// 			"Lỗi hệ thống khi xóa sản phẩm",
+// 			zap.Error(err),
+// 		)
 
-		utils.NoConnectDataResponse(c, err)
-		return
-	}
+// 		utils.NoConnectDataResponse(c, err)
+// 		return
+// 	}
 
-	logger.Log.Info(
-		"Xóa sản phẩm thành công",
-		zap.Int64("id", id),
-	)
+// 	logger.Log.Info(
+// 		"Xóa sản phẩm thành công",
+// 		zap.Int64("id", id),
+// 	)
 
-	utils.SuccessResponse(c, "Xoá sản phẩm", nil)
-}
+// 	utils.SuccessResponse(c, "Xoá sản phẩm", nil)
+// }

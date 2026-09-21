@@ -138,3 +138,340 @@
 {"level":"warn","ts":1789534827.1981235,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":10,"error":"product not found"}
 {"level":"info","ts":1789534838.623766,"msg":"Tìm thấy sản phẩm với ID đã cung cấp","id":15}
 {"level":"warn","ts":1789534857.4907012,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"số lượng không được nhỏ hơn 0"}
+{"level":"info","ts":1789872150.2875857,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789878235.0180795,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"error","ts":1789878369.589384,"msg":"Lỗi hệ thống khi lấy danh sách người dùng","error":"failed to fetch users: (42703) column users.ID does not exist"}
+{"level":"info","ts":1789878474.7855287,"msg":"Lấy danh sách người dùng thành công","count":1}
+{"level":"info","ts":1789901050.4567497,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789901079.089342,"msg":"Lấy danh sách người dùng thành công","count":1}
+{"level":"info","ts":1789901264.7550104,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789901270.6733143,"msg":"Lấy danh sách người dùng thành công","count":1}
+{"level":"info","ts":1789901328.6983504,"msg":"Lấy danh sách người dùng thành công","count":1}
+{"level":"info","ts":1789901334.3123538,"msg":"Lấy danh sách người dùng thành công","count":1}
+{"level":"error","ts":1789901352.328228,"msg":"Lỗi hệ thống khi cập nhật người dùng","error":"Chức vụ không hợp lệ"}
+{"level":"error","ts":1789901366.4386182,"msg":"Lỗi hệ thống khi cập nhật người dùng","error":"failed to update user: (PGRST204) Could not find the 'SoLuong' column of 'users' in the schema cache"}
+{"level":"info","ts":1789901403.4183862,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"error","ts":1789901408.7791355,"msg":"Lỗi hệ thống khi cập nhật người dùng","error":"failed to update user: (22P02) invalid input syntax for type uuid: \"2\""}
+{"level":"error","ts":1789901419.625441,"msg":"Lỗi hệ thống khi cập nhật người dùng","error":"failed to update user: (22P02) invalid input syntax for type uuid: \"1\""}
+{"level":"info","ts":1789901526.6253445,"msg":"Lấy danh sách người dùng thành công","count":1}
+{"level":"error","ts":1789901730.6517224,"msg":"Lỗi hệ thống khi lấy danh sách người dùng","error":"failed to decode products: json: cannot unmarshal number into Go struct field .0.ID of type string"}
+{"level":"info","ts":1789901848.3065014,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789901853.631539,"msg":"Tìm thấy người dùng với ID đã cung cấp","id":1}
+{"level":"info","ts":1789901866.2253463,"msg":"Cập nhật người dùng thành công","id":1}
+{"level":"info","ts":1789916194.761521,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789916221.3293233,"msg":"Tạo sản phẩm thành công","product_id":38}
+{"level":"info","ts":1789916516.3052225,"msg":"Tạo sản phẩm thành công","product_id":39}
+{"level":"warn","ts":1789916516.3186514,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.SoLuong' Error:Field validation for 'SoLuong' failed on the 'required' tag"}
+{"level":"info","ts":1789916516.4097667,"msg":"Tạo sản phẩm thành công","product_id":40}
+{"level":"info","ts":1789916516.501253,"msg":"Tạo sản phẩm thành công","product_id":41}
+{"level":"info","ts":1789916516.5844328,"msg":"Tạo sản phẩm thành công","product_id":42}
+{"level":"info","ts":1789916516.6677887,"msg":"Tạo sản phẩm thành công","product_id":43}
+{"level":"info","ts":1789916516.7536392,"msg":"Tạo sản phẩm thành công","product_id":44}
+{"level":"warn","ts":1789916516.7559335,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.TenMay' Error:Field validation for 'TenMay' failed on the 'required' tag"}
+{"level":"warn","ts":1789916516.757525,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.Hang' Error:Field validation for 'Hang' failed on the 'required' tag"}
+{"level":"warn","ts":1789916516.759094,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.SoLuong' Error:Field validation for 'SoLuong' failed on the 'required' tag"}
+{"level":"warn","ts":1789916516.7612107,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.TrangThai' Error:Field validation for 'TrangThai' failed on the 'required' tag"}
+{"level":"warn","ts":1789916516.762778,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.TenMay' Error:Field validation for 'TenMay' failed on the 'required' tag"}
+{"level":"warn","ts":1789916516.7649739,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916516.7665854,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.Hang' Error:Field validation for 'Hang' failed on the 'required' tag"}
+{"level":"warn","ts":1789916516.7681882,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916516.7697556,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"không được nhỏ hơn 0"}
+{"level":"warn","ts":1789916516.7713802,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"không được nhỏ hơn 0"}
+{"level":"warn","ts":1789916516.7729695,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916516.7746112,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916516.7767742,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916516.7783787,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916516.7800524,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916516.7816596,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.TrangThai' Error:Field validation for 'TrangThai' failed on the 'required' tag"}
+{"level":"warn","ts":1789916516.7832506,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916516.7848425,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.TenMay' Error:Field validation for 'TenMay' failed on the 'required' tag\nKey: 'CreateProductRequest.Hang' Error:Field validation for 'Hang' failed on the 'required' tag\nKey: 'CreateProductRequest.SoLuong' Error:Field validation for 'SoLuong' failed on the 'required' tag\nKey: 'CreateProductRequest.TrangThai' Error:Field validation for 'TrangThai' failed on the 'required' tag"}
+{"level":"info","ts":1789916516.8746355,"msg":"Lấy danh sách sản phẩm thành công","count":27}
+{"level":"info","ts":1789916516.9556334,"msg":"Lấy danh sách sản phẩm thành công","count":27}
+{"level":"info","ts":1789916517.0370717,"msg":"Lấy danh sách sản phẩm thành công","count":27}
+{"level":"warn","ts":1789916517.0405452,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"abc\": invalid syntax"}
+{"level":"warn","ts":1789916517.041608,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"xyz\": invalid syntax"}
+{"level":"warn","ts":1789916517.042708,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":0,"error":"product not found"}
+{"level":"warn","ts":1789916517.0437787,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":-1,"error":"product not found"}
+{"level":"warn","ts":1789916517.0633512,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":-100,"error":"product not found"}
+{"level":"warn","ts":1789916517.1405005,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":999999,"error":"product not found"}
+{"level":"warn","ts":1789916517.1420627,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"1.5\": invalid syntax"}
+{"level":"warn","ts":1789916517.146346,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"!@\": invalid syntax"}
+{"level":"info","ts":1789916517.2301986,"msg":"Lấy danh sách sản phẩm thành công","count":27}
+{"level":"info","ts":1789916517.359413,"msg":"Cập nhật sản phẩm thành công","id":44}
+{"level":"info","ts":1789916517.4416668,"msg":"Cập nhật sản phẩm thành công","id":44}
+{"level":"info","ts":1789916517.5298216,"msg":"Cập nhật sản phẩm thành công","id":44}
+{"level":"info","ts":1789916517.6204422,"msg":"Cập nhật sản phẩm thành công","id":44}
+{"level":"info","ts":1789916517.7005537,"msg":"Cập nhật sản phẩm thành công","id":44}
+{"level":"info","ts":1789916517.7943377,"msg":"Cập nhật sản phẩm thành công","id":44}
+{"level":"info","ts":1789916517.952335,"msg":"Cập nhật sản phẩm thành công","id":44}
+{"level":"info","ts":1789916518.0344758,"msg":"Cập nhật sản phẩm thành công","id":44}
+{"level":"warn","ts":1789916518.115158,"msg":"Không tìm thấy sản phẩm để cập nhật","id":44,"error":"product not found"}
+{"level":"warn","ts":1789916518.1167226,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916518.118337,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916518.1205244,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916518.122144,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916518.1237864,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"không được nhỏ hơn 0"}
+{"level":"warn","ts":1789916518.1259904,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"không được nhỏ hơn 0"}
+{"level":"warn","ts":1789916518.1276183,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916518.1292946,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916518.1319976,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916518.1336598,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916518.136544,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916518.1398556,"msg":"Không tìm thấy sản phẩm để cập nhật","id":0,"error":"product not found"}
+{"level":"warn","ts":1789916518.142671,"msg":"Không tìm thấy sản phẩm để cập nhật","id":-1,"error":"product not found"}
+{"level":"warn","ts":1789916518.226526,"msg":"Không tìm thấy sản phẩm để cập nhật","id":999999,"error":"product not found"}
+{"level":"warn","ts":1789916518.2282195,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"abc\": invalid syntax"}
+{"level":"warn","ts":1789916518.2309582,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"1.5\": invalid syntax"}
+{"level":"warn","ts":1789916518.2330961,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"abc\": invalid syntax"}
+{"level":"warn","ts":1789916518.234178,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"xyz\": invalid syntax"}
+{"level":"warn","ts":1789916518.234712,"msg":"Không tìm thấy sản phẩm để xóa","error":"product not found"}
+{"level":"warn","ts":1789916518.2357984,"msg":"Không tìm thấy sản phẩm để xóa","error":"product not found"}
+{"level":"warn","ts":1789916518.2363284,"msg":"Không tìm thấy sản phẩm để xóa","error":"product not found"}
+{"level":"warn","ts":1789916518.326633,"msg":"Không tìm thấy sản phẩm để xóa","error":"product not found"}
+{"level":"warn","ts":1789916518.327802,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"1.5\": invalid syntax"}
+{"level":"info","ts":1789916518.415066,"msg":"Tạo sản phẩm thành công","product_id":45}
+{"level":"info","ts":1789916518.500641,"msg":"Tạo sản phẩm thành công","product_id":46}
+{"level":"info","ts":1789916518.5820847,"msg":"Tạo sản phẩm thành công","product_id":47}
+{"level":"info","ts":1789916518.6657214,"msg":"Tạo sản phẩm thành công","product_id":48}
+{"level":"info","ts":1789916518.7507455,"msg":"Tạo sản phẩm thành công","product_id":49}
+{"level":"info","ts":1789916518.8315206,"msg":"Xóa sản phẩm thành công","id":45}
+{"level":"info","ts":1789916518.914404,"msg":"Xóa sản phẩm thành công","id":46}
+{"level":"info","ts":1789916518.9929395,"msg":"Xóa sản phẩm thành công","id":47}
+{"level":"info","ts":1789916519.0732627,"msg":"Xóa sản phẩm thành công","id":48}
+{"level":"info","ts":1789916519.1564302,"msg":"Xóa sản phẩm thành công","id":49}
+{"level":"warn","ts":1789916519.159088,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.SoLuong' Error:Field validation for 'SoLuong' failed on the 'required' tag"}
+{"level":"info","ts":1789916519.2396922,"msg":"Tạo sản phẩm thành công","product_id":50}
+{"level":"info","ts":1789916519.3196158,"msg":"Tạo sản phẩm thành công","product_id":51}
+{"level":"info","ts":1789916519.40209,"msg":"Tạo sản phẩm thành công","product_id":52}
+{"level":"info","ts":1789916519.4893324,"msg":"Tạo sản phẩm thành công","product_id":53}
+{"level":"info","ts":1789916519.5719423,"msg":"Tạo sản phẩm thành công","product_id":54}
+{"level":"warn","ts":1789916519.5734935,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916519.5751004,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916519.576704,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"không được nhỏ hơn 0"}
+{"level":"info","ts":1789916519.6601305,"msg":"Tạo sản phẩm thành công","product_id":55}
+{"level":"warn","ts":1789916519.7402544,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":99999999999,"error":"product not found"}
+{"level":"warn","ts":1789916519.7424123,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916519.7476904,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.TenMay' Error:Field validation for 'TenMay' failed on the 'required' tag\nKey: 'CreateProductRequest.Hang' Error:Field validation for 'Hang' failed on the 'required' tag\nKey: 'CreateProductRequest.SoLuong' Error:Field validation for 'SoLuong' failed on the 'required' tag\nKey: 'CreateProductRequest.TrangThai' Error:Field validation for 'TrangThai' failed on the 'required' tag"}
+{"level":"info","ts":1789916519.836669,"msg":"Lấy danh sách sản phẩm thành công","count":33}
+{"level":"info","ts":1789916519.9215965,"msg":"Lấy danh sách sản phẩm thành công","count":33}
+{"level":"info","ts":1789916520.0053473,"msg":"Tạo sản phẩm thành công","product_id":56}
+{"level":"info","ts":1789916520.0905735,"msg":"Tạo sản phẩm thành công","product_id":57}
+{"level":"warn","ts":1789916520.092793,"msg":"Không tìm thấy sản phẩm để cập nhật","id":0,"error":"product not found"}
+{"level":"warn","ts":1789916520.093884,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"1.23\": invalid syntax"}
+{"level":"warn","ts":1789916520.0960698,"msg":"Không tìm thấy sản phẩm để cập nhật","id":-1,"error":"product not found"}
+{"level":"warn","ts":1789916520.0972319,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":0,"error":"product not found"}
+{"level":"info","ts":1789916520.180539,"msg":"Tạo sản phẩm thành công","product_id":58}
+{"level":"warn","ts":1789916520.1822572,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916520.183845,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916520.1849222,"msg":"Không tìm thấy sản phẩm để xóa","error":"product not found"}
+{"level":"info","ts":1789916520.2664394,"msg":"Tạo sản phẩm thành công","product_id":59}
+{"level":"info","ts":1789916742.8130007,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789916809.4605212,"msg":"Tạo sản phẩm thành công","product_id":60}
+{"level":"warn","ts":1789916809.4740376,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.SoLuong' Error:Field validation for 'SoLuong' failed on the 'required' tag"}
+{"level":"info","ts":1789916809.5610106,"msg":"Tạo sản phẩm thành công","product_id":61}
+{"level":"info","ts":1789916809.6353874,"msg":"Tạo sản phẩm thành công","product_id":62}
+{"level":"info","ts":1789916809.7076738,"msg":"Tạo sản phẩm thành công","product_id":63}
+{"level":"info","ts":1789916809.852927,"msg":"Tạo sản phẩm thành công","product_id":64}
+{"level":"info","ts":1789916809.9264529,"msg":"Tạo sản phẩm thành công","product_id":65}
+{"level":"warn","ts":1789916809.9290338,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.TenMay' Error:Field validation for 'TenMay' failed on the 'required' tag"}
+{"level":"warn","ts":1789916809.9312005,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.Hang' Error:Field validation for 'Hang' failed on the 'required' tag"}
+{"level":"warn","ts":1789916809.932791,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.SoLuong' Error:Field validation for 'SoLuong' failed on the 'required' tag"}
+{"level":"warn","ts":1789916809.9338434,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.TrangThai' Error:Field validation for 'TrangThai' failed on the 'required' tag"}
+{"level":"warn","ts":1789916809.9354336,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.TenMay' Error:Field validation for 'TenMay' failed on the 'required' tag"}
+{"level":"warn","ts":1789916809.9370434,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916809.9386542,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.Hang' Error:Field validation for 'Hang' failed on the 'required' tag"}
+{"level":"warn","ts":1789916809.9402497,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916809.9413447,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.SoLuong' Error:Field validation for 'SoLuong' failed on the 'min' tag"}
+{"level":"warn","ts":1789916809.9429328,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.SoLuong' Error:Field validation for 'SoLuong' failed on the 'min' tag"}
+{"level":"warn","ts":1789916809.9450443,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916809.9466934,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916809.9488409,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916809.9504547,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916809.9520428,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916809.9536717,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.TrangThai' Error:Field validation for 'TrangThai' failed on the 'required' tag"}
+{"level":"warn","ts":1789916809.9552689,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916809.9568603,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.TenMay' Error:Field validation for 'TenMay' failed on the 'required' tag\nKey: 'CreateProductRequest.Hang' Error:Field validation for 'Hang' failed on the 'required' tag\nKey: 'CreateProductRequest.SoLuong' Error:Field validation for 'SoLuong' failed on the 'required' tag\nKey: 'CreateProductRequest.TrangThai' Error:Field validation for 'TrangThai' failed on the 'required' tag"}
+{"level":"info","ts":1789916810.037782,"msg":"Lấy danh sách sản phẩm thành công","count":43}
+{"level":"info","ts":1789916810.1153376,"msg":"Lấy danh sách sản phẩm thành công","count":43}
+{"level":"info","ts":1789916810.1889498,"msg":"Lấy danh sách sản phẩm thành công","count":43}
+{"level":"warn","ts":1789916810.191333,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"abc\": invalid syntax"}
+{"level":"warn","ts":1789916810.1923988,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"xyz\": invalid syntax"}
+{"level":"warn","ts":1789916810.192928,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":0,"error":"product not found"}
+{"level":"warn","ts":1789916810.193995,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":-1,"error":"product not found"}
+{"level":"warn","ts":1789916810.2119586,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":-100,"error":"product not found"}
+{"level":"warn","ts":1789916810.2846053,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":999999,"error":"product not found"}
+{"level":"warn","ts":1789916810.28627,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"1.5\": invalid syntax"}
+{"level":"warn","ts":1789916810.2875333,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"!@\": invalid syntax"}
+{"level":"info","ts":1789916810.3609073,"msg":"Lấy danh sách sản phẩm thành công","count":43}
+{"level":"info","ts":1789916810.4781892,"msg":"Cập nhật sản phẩm thành công","id":65}
+{"level":"info","ts":1789916810.5555186,"msg":"Cập nhật sản phẩm thành công","id":65}
+{"level":"info","ts":1789916810.6347444,"msg":"Cập nhật sản phẩm thành công","id":65}
+{"level":"info","ts":1789916810.7109025,"msg":"Cập nhật sản phẩm thành công","id":65}
+{"level":"info","ts":1789916810.7878554,"msg":"Cập nhật sản phẩm thành công","id":65}
+{"level":"info","ts":1789916810.8610094,"msg":"Cập nhật sản phẩm thành công","id":65}
+{"level":"info","ts":1789916810.9353654,"msg":"Cập nhật sản phẩm thành công","id":65}
+{"level":"info","ts":1789916811.0102959,"msg":"Cập nhật sản phẩm thành công","id":65}
+{"level":"info","ts":1789916811.0825963,"msg":"Cập nhật sản phẩm thành công","id":65}
+{"level":"warn","ts":1789916811.084752,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916811.0869887,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916811.08859,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916811.0907466,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916811.0925095,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"không được nhỏ hơn 0"}
+{"level":"warn","ts":1789916811.0935824,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"không được nhỏ hơn 0"}
+{"level":"warn","ts":1789916811.095249,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916811.0972533,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916811.099413,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916811.1010704,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916811.1058836,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916811.1137557,"msg":"Không tìm thấy sản phẩm để cập nhật","id":0,"error":"product not found"}
+{"level":"warn","ts":1789916811.1180556,"msg":"Không tìm thấy sản phẩm để cập nhật","id":-1,"error":"product not found"}
+{"level":"warn","ts":1789916811.1922915,"msg":"Không tìm thấy sản phẩm để cập nhật","id":999999,"error":"product not found"}
+{"level":"warn","ts":1789916811.1941168,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"abc\": invalid syntax"}
+{"level":"warn","ts":1789916811.1962676,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"1.5\": invalid syntax"}
+{"level":"warn","ts":1789916811.1978793,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"abc\": invalid syntax"}
+{"level":"warn","ts":1789916811.198413,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"xyz\": invalid syntax"}
+{"level":"warn","ts":1789916811.1994805,"msg":"Không tìm thấy sản phẩm để xóa","error":"product not found"}
+{"level":"warn","ts":1789916811.20001,"msg":"Không tìm thấy sản phẩm để xóa","error":"product not found"}
+{"level":"warn","ts":1789916811.201091,"msg":"Không tìm thấy sản phẩm để xóa","error":"product not found"}
+{"level":"warn","ts":1789916811.2723713,"msg":"Không tìm thấy sản phẩm để xóa","error":"product not found"}
+{"level":"warn","ts":1789916811.2735147,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"1.5\": invalid syntax"}
+{"level":"info","ts":1789916811.34856,"msg":"Tạo sản phẩm thành công","product_id":66}
+{"level":"info","ts":1789916811.424771,"msg":"Tạo sản phẩm thành công","product_id":67}
+{"level":"info","ts":1789916811.500042,"msg":"Tạo sản phẩm thành công","product_id":68}
+{"level":"info","ts":1789916811.573749,"msg":"Tạo sản phẩm thành công","product_id":69}
+{"level":"info","ts":1789916811.6505122,"msg":"Tạo sản phẩm thành công","product_id":70}
+{"level":"info","ts":1789916811.7237005,"msg":"Xóa sản phẩm thành công","id":66}
+{"level":"info","ts":1789916811.7947762,"msg":"Xóa sản phẩm thành công","id":67}
+{"level":"info","ts":1789916811.8674014,"msg":"Xóa sản phẩm thành công","id":68}
+{"level":"info","ts":1789916811.945022,"msg":"Xóa sản phẩm thành công","id":69}
+{"level":"info","ts":1789916812.0190227,"msg":"Xóa sản phẩm thành công","id":70}
+{"level":"warn","ts":1789916812.0217376,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.SoLuong' Error:Field validation for 'SoLuong' failed on the 'required' tag"}
+{"level":"info","ts":1789916812.0943477,"msg":"Tạo sản phẩm thành công","product_id":71}
+{"level":"info","ts":1789916812.1662638,"msg":"Tạo sản phẩm thành công","product_id":72}
+{"level":"info","ts":1789916812.237732,"msg":"Tạo sản phẩm thành công","product_id":73}
+{"level":"info","ts":1789916812.3116224,"msg":"Tạo sản phẩm thành công","product_id":74}
+{"level":"info","ts":1789916812.3837702,"msg":"Tạo sản phẩm thành công","product_id":75}
+{"level":"warn","ts":1789916812.3855932,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916812.387206,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916812.3887901,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.SoLuong' Error:Field validation for 'SoLuong' failed on the 'min' tag"}
+{"level":"info","ts":1789916812.4606562,"msg":"Tạo sản phẩm thành công","product_id":76}
+{"level":"warn","ts":1789916812.5334318,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":99999999999,"error":"product not found"}
+{"level":"warn","ts":1789916812.5403507,"msg":"Dữ liệu cập nhật sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916812.541406,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateProductRequest.TenMay' Error:Field validation for 'TenMay' failed on the 'required' tag\nKey: 'CreateProductRequest.Hang' Error:Field validation for 'Hang' failed on the 'required' tag\nKey: 'CreateProductRequest.SoLuong' Error:Field validation for 'SoLuong' failed on the 'required' tag\nKey: 'CreateProductRequest.TrangThai' Error:Field validation for 'TrangThai' failed on the 'required' tag"}
+{"level":"info","ts":1789916812.6127307,"msg":"Lấy danh sách sản phẩm thành công","count":49}
+{"level":"info","ts":1789916812.6863205,"msg":"Lấy danh sách sản phẩm thành công","count":49}
+{"level":"info","ts":1789916812.768655,"msg":"Tạo sản phẩm thành công","product_id":77}
+{"level":"info","ts":1789916812.8500037,"msg":"Tạo sản phẩm thành công","product_id":78}
+{"level":"warn","ts":1789916812.8517845,"msg":"Không tìm thấy sản phẩm để cập nhật","id":0,"error":"product not found"}
+{"level":"warn","ts":1789916812.8528543,"msg":"ID sản phẩm không hợp lệ","error":"strconv.ParseInt: parsing \"1.23\": invalid syntax"}
+{"level":"warn","ts":1789916812.8539221,"msg":"Không tìm thấy sản phẩm để cập nhật","id":-1,"error":"product not found"}
+{"level":"warn","ts":1789916812.8549914,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":0,"error":"product not found"}
+{"level":"info","ts":1789916812.9280407,"msg":"Tạo sản phẩm thành công","product_id":79}
+{"level":"warn","ts":1789916812.9301355,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789916812.9311798,"msg":"Dữ liệu tạo sản phẩm không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789916812.9317,"msg":"Không tìm thấy sản phẩm để xóa","error":"product not found"}
+{"level":"info","ts":1789916813.0054543,"msg":"Tạo sản phẩm thành công","product_id":80}
+{"level":"info","ts":1789917148.8553648,"msg":"Lấy danh sách người dùng thành công","count":1}
+{"level":"info","ts":1789917149.1366563,"msg":"Lấy danh sách người dùng thành công","count":1}
+{"level":"info","ts":1789917149.2787075,"msg":"Lấy danh sách người dùng thành công","count":1}
+{"level":"info","ts":1789917149.5831306,"msg":"Lấy danh sách người dùng thành công","count":1}
+{"level":"warn","ts":1789917149.6163828,"msg":"ID người dùng không hợp lệ","error":"strconv.ParseInt: parsing \"abc\": invalid syntax"}
+{"level":"warn","ts":1789917149.6174634,"msg":"ID người dùng không hợp lệ","error":"strconv.ParseInt: parsing \"xyz\": invalid syntax"}
+{"level":"warn","ts":1789917149.618551,"msg":"Không tìm thấy người dùng với ID đã cung cấp","id":0,"error":"user not found"}
+{"level":"warn","ts":1789917149.6196444,"msg":"Không tìm thấy người dùng với ID đã cung cấp","id":-1,"error":"user not found"}
+{"level":"warn","ts":1789917149.6201787,"msg":"Không tìm thấy người dùng với ID đã cung cấp","id":-100,"error":"user not found"}
+{"level":"warn","ts":1789917149.7592385,"msg":"Không tìm thấy người dùng với ID đã cung cấp","id":999999,"error":"user not found"}
+{"level":"warn","ts":1789917149.7610302,"msg":"ID người dùng không hợp lệ","error":"strconv.ParseInt: parsing \"1.5\": invalid syntax"}
+{"level":"warn","ts":1789917149.7621062,"msg":"ID người dùng không hợp lệ","error":"strconv.ParseInt: parsing \"!@\": invalid syntax"}
+{"level":"warn","ts":1789917149.896717,"msg":"Không tìm thấy người dùng với ID đã cung cấp","id":99999999999,"error":"user not found"}
+{"level":"warn","ts":1789917149.897826,"msg":"Không tìm thấy người dùng với ID đã cung cấp","id":0,"error":"user not found"}
+{"level":"info","ts":1789917150.0387607,"msg":"Lấy danh sách người dùng thành công","count":1}
+{"level":"warn","ts":1789917150.039813,"msg":"ID người dùng không hợp lệ","error":"strconv.ParseInt: parsing \"null\": invalid syntax"}
+{"level":"info","ts":1789917150.1756427,"msg":"Tìm thấy người dùng với ID đã cung cấp","id":1}
+{"level":"info","ts":1789917150.3253312,"msg":"Cập nhật người dùng thành công","id":1}
+{"level":"info","ts":1789917150.4584348,"msg":"Cập nhật người dùng thành công","id":1}
+{"level":"info","ts":1789917150.600202,"msg":"Cập nhật người dùng thành công","id":1}
+{"level":"info","ts":1789917150.7295218,"msg":"Cập nhật người dùng thành công","id":1}
+{"level":"info","ts":1789917150.862255,"msg":"Cập nhật người dùng thành công","id":1}
+{"level":"info","ts":1789917150.9945774,"msg":"Cập nhật người dùng thành công","id":1}
+{"level":"info","ts":1789917151.1283364,"msg":"Cập nhật người dùng thành công","id":1}
+{"level":"info","ts":1789917151.26391,"msg":"Cập nhật người dùng thành công","id":1}
+{"level":"warn","ts":1789917151.4006712,"msg":"Không tìm thấy người dùng để cập nhật","id":1,"error":"user not found"}
+{"level":"info","ts":1789917151.546987,"msg":"Cập nhật người dùng thành công","id":1}
+{"level":"info","ts":1789917151.6835804,"msg":"Cập nhật người dùng thành công","id":1}
+{"level":"warn","ts":1789917151.685404,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789917151.6870856,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789917151.688176,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789917151.6897693,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"không được truyền vào xâu rỗng"}
+{"level":"warn","ts":1789917151.691936,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"chức vụ không hợp lệ"}
+{"level":"warn","ts":1789917151.6941807,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"chức vụ không hợp lệ"}
+{"level":"warn","ts":1789917151.7006087,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"chức vụ không hợp lệ"}
+{"level":"warn","ts":1789917151.7022474,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"chức vụ không hợp lệ"}
+{"level":"warn","ts":1789917151.7043757,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"chức vụ không hợp lệ"}
+{"level":"warn","ts":1789917151.7059977,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"chức vụ không hợp lệ"}
+{"level":"warn","ts":1789917151.7076442,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"chức vụ không hợp lệ"}
+{"level":"warn","ts":1789917151.7098355,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"chức vụ không hợp lệ"}
+{"level":"warn","ts":1789917151.711444,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"chức vụ không hợp lệ"}
+{"level":"warn","ts":1789917151.7131343,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789917151.7153122,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789917151.7169335,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789917151.7184834,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789917151.7200027,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789917151.7214098,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789917151.7229304,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"trạng thái không hợp lệ"}
+{"level":"warn","ts":1789917151.724976,"msg":"Không tìm thấy người dùng để cập nhật","id":0,"error":"user not found"}
+{"level":"warn","ts":1789917151.7265546,"msg":"Không tìm thấy người dùng để cập nhật","id":-1,"error":"user not found"}
+{"level":"warn","ts":1789917151.8725514,"msg":"Không tìm thấy người dùng để cập nhật","id":999999,"error":"user not found"}
+{"level":"warn","ts":1789917151.874748,"msg":"ID người dùng không hợp lệ","error":"strconv.ParseInt: parsing \"abc\": invalid syntax"}
+{"level":"warn","ts":1789917151.8774536,"msg":"ID người dùng không hợp lệ","error":"strconv.ParseInt: parsing \"1.5\": invalid syntax"}
+{"level":"warn","ts":1789917151.8796098,"msg":"Không tìm thấy người dùng để cập nhật","id":0,"error":"user not found"}
+{"level":"info","ts":1789917152.0159905,"msg":"Lấy danh sách người dùng thành công","count":1}
+{"level":"info","ts":1789917152.1670382,"msg":"Cập nhật người dùng thành công","id":1}
+{"level":"warn","ts":1789917152.1686866,"msg":"Dữ liệu cập nhật người dùng không hợp lệ","error":"chức vụ không hợp lệ"}
+{"level":"info","ts":1789917152.3175936,"msg":"Cập nhật người dùng thành công","id":1}
+{"level":"info","ts":1789917152.4572132,"msg":"Cập nhật người dùng thành công","id":1}
+{"level":"info","ts":1789917152.5916467,"msg":"Tìm thấy người dùng với ID đã cung cấp","id":1}
+{"level":"warn","ts":1789917152.5929523,"msg":"Không tìm thấy người dùng với ID đã cung cấp","id":-999,"error":"user not found"}
+{"level":"warn","ts":1789917152.5945861,"msg":"Không tìm thấy người dùng để cập nhật","id":-999,"error":"user not found"}
+{"level":"info","ts":1789917152.7270095,"msg":"Lấy danh sách người dùng thành công","count":1}
+{"level":"warn","ts":1789917152.7280836,"msg":"ID người dùng không hợp lệ","error":"strconv.ParseInt: parsing \"abc\": invalid syntax"}
+{"level":"info","ts":1789917930.8260367,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"error","ts":1789917930.82816,"msg":"Không thể khởi chạy HTTP server","error":"listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted."}
+{"level":"info","ts":1789917938.68489,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789917967.9820845,"msg":"Cập nhật người dùng thành công","id":1}
+{"level":"info","ts":1789954710.0941288,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"warn","ts":1789954861.6547492,"msg":"Dữ liệu gửi lên không hợp lệ","error":"json: cannot unmarshal string into Go struct field CreateTransportRequest.ghi_chu of type int64"}
+{"level":"warn","ts":1789954883.5068896,"msg":"Dữ liệu gửi lên không hợp lệ","error":"json: cannot unmarshal string into Go struct field CreateTransportRequest.ghi_chu of type int64"}
+{"level":"info","ts":1789955031.0382516,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"error","ts":1789955040.6610541,"msg":"Lỗi hệ thống khi tạo phiếu vận chuyển","error":"failed to create transport: (23502) null value in column \"TenNguoiTao\" of relation \"transports\" violates not-null constraint"}
+{"level":"info","ts":1789955784.2687252,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789955797.018166,"msg":"Tạo phiếu vận chuyển thành công","transport_id":2}
+{"level":"info","ts":1789955822.3948724,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789955846.8877528,"msg":"Tạo phiếu vận chuyển thành công","transport_id":3}
+{"level":"warn","ts":1789955867.5655906,"msg":"Dữ liệu tạo phiếu vận chuyển không hợp lệ","error":"số lượng sản phẩm sau khi thực hiện không được âm"}
+{"level":"info","ts":1789955873.79549,"msg":"Tạo phiếu vận chuyển thành công","transport_id":4}
+{"level":"info","ts":1789988911.4181912,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"warn","ts":1789989056.885621,"msg":"Dữ liệu đăng ký không hợp lệ","error":"Key: 'RegisterRequest.Password' Error:Field validation for 'Password' failed on the 'required' tag\nKey: 'RegisterRequest.SoDienThoai' Error:Field validation for 'SoDienThoai' failed on the 'required' tag\nKey: 'RegisterRequest.ChucVu' Error:Field validation for 'ChucVu' failed on the 'required' tag"}
+{"level":"warn","ts":1789989170.4110737,"msg":"Dữ liệu đăng ký không hợp lệ hoặc đã tồn tại","error":"email đã tồn tại"}
+{"level":"info","ts":1789989176.9579172,"msg":"Đăng ký người dùng thành công","email":"test1@gmail.com","user_id":2}
+{"level":"info","ts":1789990546.4628723,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"warn","ts":1789990572.5577383,"msg":"Yêu cầu lấy thông tin người dùng thiếu Authorization header"}
+{"level":"warn","ts":1789990593.542045,"msg":"Yêu cầu lấy thông tin người dùng thiếu Authorization header"}
+{"level":"info","ts":1789990651.3130734,"msg":"Đăng nhập thành công","email":"test1@gmail.com","user_id":2}
+{"level":"info","ts":1789992227.497562,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789992418.155377,"msg":"Đăng nhập thành công","email":"test1@gmail.com","user_id":2}
+{"level":"info","ts":1789993052.0814805,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"warn","ts":1789997020.8490615,"msg":"Middleware chặn request: token không hợp lệ hoặc tài khoản vô hiệu","error":"token không hợp lệ hoặc đã hết hạn","path":"/api/auth/me"}
+{"level":"info","ts":1789998803.263451,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1789998819.4778404,"msg":"Đăng nhập thành công","email":"test1@gmail.com","user_id":2}
+{"level":"info","ts":1789998952.9724042,"msg":"Đăng xuất thành công"}
+{"level":"info","ts":1790003406.4568324,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"warn","ts":1790003439.1382866,"msg":"Đăng nhập thất bại: sai email hoặc mật khẩu","email":"test@gmail.com"}
+{"level":"warn","ts":1790003462.6613567,"msg":"Đăng nhập thất bại: sai email hoặc mật khẩu","email":"test@gmail.com"}
+{"level":"warn","ts":1790003477.9725823,"msg":"Đăng nhập thất bại: sai email hoặc mật khẩu","email":"test@gmail.com"}
+{"level":"info","ts":1790003482.5875466,"msg":"Đăng nhập thành công","email":"test1@gmail.com","user_id":2}
+{"level":"info","ts":1790005929.2368681,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1790006111.9467325,"msg":"Đăng nhập thành công","email":"test1@gmail.com","user_id":2}
+{"level":"warn","ts":1790006219.1612482,"msg":"Dữ liệu đăng ký không hợp lệ hoặc đã tồn tại","error":"chức vụ không hợp lệ, chỉ chấp nhận admin hoặc staff"}
+{"level":"warn","ts":1790006237.5797102,"msg":"Dữ liệu đăng ký không hợp lệ hoặc đã tồn tại","error":"email đã tồn tại"}
+{"level":"info","ts":1790006242.9190278,"msg":"Đăng ký người dùng thành công","email":"test2@gmail.com","user_id":3}
