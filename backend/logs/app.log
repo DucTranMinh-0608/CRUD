@@ -475,3 +475,28 @@
 {"level":"warn","ts":1790006219.1612482,"msg":"Dữ liệu đăng ký không hợp lệ hoặc đã tồn tại","error":"chức vụ không hợp lệ, chỉ chấp nhận admin hoặc staff"}
 {"level":"warn","ts":1790006237.5797102,"msg":"Dữ liệu đăng ký không hợp lệ hoặc đã tồn tại","error":"email đã tồn tại"}
 {"level":"info","ts":1790006242.9190278,"msg":"Đăng ký người dùng thành công","email":"test2@gmail.com","user_id":3}
+{"level":"info","ts":1790037565.4427984,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"warn","ts":1790037574.8584063,"msg":"Middleware chặn request: token không hợp lệ hoặc tài khoản vô hiệu","error":"token không hợp lệ hoặc đã hết hạn","path":"/api/auth/register"}
+{"level":"warn","ts":1790037624.5477734,"msg":"Dữ liệu đăng nhập không hợp lệ","error":"định dạng email không hợp lệ"}
+{"level":"warn","ts":1790037631.9276276,"msg":"Dữ liệu đăng nhập không hợp lệ","error":"định dạng email không hợp lệ"}
+{"level":"warn","ts":1790037637.2479231,"msg":"Đăng nhập thất bại: sai email hoặc mật khẩu","email":"test1@gmail.com"}
+{"level":"info","ts":1790037642.7674084,"msg":"Đăng nhập thành công","email":"test1@gmail.com","user_id":2}
+{"level":"info","ts":1790037685.3103523,"msg":"Đăng ký người dùng thành công","email":"user@example.com","user_id":4}
+{"level":"info","ts":1790040302.2298691,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"warn","ts":1790040354.8234615,"msg":"Middleware chặn request: token không hợp lệ hoặc tài khoản vô hiệu","error":"token không hợp lệ hoặc đã hết hạn","path":"/api/auth/register"}
+{"level":"info","ts":1790040381.035007,"msg":"Đăng nhập thành công","email":"test1@gmail.com","user_id":2}
+{"level":"warn","ts":1790040400.9761505,"msg":"Dữ liệu đăng ký không hợp lệ hoặc đã tồn tại","error":"email đã tồn tại"}
+{"level":"info","ts":1790040472.3765173,"msg":"Đăng ký người dùng thành công","email":"user1@example.com","user_id":5}
+{"level":"info","ts":1790040587.12002,"msg":"Đăng nhập thành công","email":"user@example.com","user_id":4}
+{"level":"info","ts":1790040678.5755763,"msg":"Đăng xuất thành công"}
+{"level":"info","ts":1790040917.2764065,"msg":"Đăng nhập thành công","email":"user@example.com","user_id":4}
+{"level":"info","ts":1790040930.1231947,"msg":"Lấy danh sách sản phẩm thành công","count":53}
+{"level":"info","ts":1790041162.72458,"msg":"Đăng nhập thành công","email":"test1@gmail.com","user_id":2}
+{"level":"warn","ts":1790041222.709497,"msg":"Dữ liệu đăng nhập không hợp lệ","error":"Key: 'LoginRequest.Email' Error:Field validation for 'Email' failed on the 'required' tag\nKey: 'LoginRequest.Password' Error:Field validation for 'Password' failed on the 'required' tag"}
+{"level":"info","ts":1790041240.2872233,"msg":"Tạo sản phẩm thành công","product_id":82}
+{"level":"info","ts":1790041563.7904673,"msg":"Cập nhật sản phẩm thành công","id":82}
+{"level":"warn","ts":1790041900.7602825,"msg":"Người dùng không đủ quyền hạn truy cập API","user_id":2,"user_role":"admin","required_roles":["staff"],"path":"/api/transport"}
+{"level":"info","ts":1790041946.267832,"msg":"Đăng nhập thành công","email":"user@example.com","user_id":4}
+{"level":"warn","ts":1790041957.269952,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id_san_pham":1,"error":"product not found"}
+{"level":"info","ts":1790041964.4575768,"msg":"Tạo phiếu vận chuyển thành công","transport_id":5}
+{"level":"info","ts":1790043261.050137,"msg":"Lấy danh sách sản phẩm thành công","count":54}
