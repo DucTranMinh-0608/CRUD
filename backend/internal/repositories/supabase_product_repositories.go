@@ -42,22 +42,34 @@ func (r *SupabaseProductRepository) CreateProduct(ctx context.Context, req *mode
 	return &products[0], nil
 }
 
-func (r *SupabaseProductRepository) GetAllProducts(ctx context.Context) ([]models.Product, error) {
-	data, _, err := r.client.From("products").
-		Select("*", "", false).
-		Order("ID", &postgrest.OrderOpts{Ascending: false}).
+func (r *SupabaseProductRepository) GetAllProducts(ctx context.Context, id int64) ([]models.Product, int64, error) {
+	limit := 10
+	page := int(id)
+
+	from := (page - 1) * limit
+	to := from + limit - 1
+
+	data, count, err := r.client.
+		From("products").
+		Select("*", "exact", false).
+		Order("ID", &postgrest.OrderOpts{
+			Ascending: false,
+		}).
+		Range(from, to, "").
 		ExecuteWithContext(ctx)
+
 	if err != nil {
-		return nil, fmt.Errorf("failed to fetch products: %w", err)
+		return nil, 0, fmt.Errorf("failed to fetch products: %w", err)
 	}
 
 	var products []models.Product
 	if err := json.Unmarshal(data, &products); err != nil {
-		return nil, fmt.Errorf("failed to decode products: %w", err)
+		return nil, 0, fmt.Errorf("failed to decode products: %w", err)
 	}
 
-	return products, nil
+	return products, count, nil
 }
+
 
 func (r *SupabaseProductRepository) GetProductByID(ctx context.Context, id int64) (*models.Product, error) {
 	data, _, err := r.client.From("products").

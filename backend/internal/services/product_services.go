@@ -9,7 +9,7 @@ import (
 
 type ProductService interface {
 	CreateProduct(ctx context.Context, req *models.CreateProduct) (*models.Product, error)
-	GetAllProducts(ctx context.Context) ([]models.Product, error)
+	GetAllProducts(ctx context.Context, id int64) ([]models.Product, int64, error)
 	GetProductByID(ctx context.Context, id int64) (*models.Product, error)
 	UpdateProduct(ctx context.Context, id int64, req *models.UpdateProduct) (*models.Product, error)
 	//DeleteProduct(ctx context.Context, id int64) error
@@ -56,12 +56,12 @@ func (s *productService) CreateProduct(ctx context.Context, req *models.CreatePr
 	return product, nil
 }
 
-func (s *productService) GetAllProducts(ctx context.Context) ([]models.Product, error) {
-	products, err := s.repo.GetAllProducts(ctx)
+func (s *productService) GetAllProducts(ctx context.Context, id int64) ([]models.Product, int64, error) {
+	products, total, err := s.repo.GetAllProducts(ctx, id)
 	if err != nil {
-		return nil, err
+		return nil, 0, err
 	}
-	return products, nil
+	return products, total, nil
 }
 
 func (s *productService) GetProductByID(ctx context.Context, id int64) (*models.Product, error) {

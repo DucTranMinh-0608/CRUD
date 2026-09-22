@@ -24,3 +24,11 @@ type ProductResponse struct {
 	SoLuong   int    `json:"so_luong"`
 	TrangThai string `json:"trang_thai"`
 }
+
+type ProductListResponse struct {
+	Total    int64             `json:"total"`
+	Page     int64             `json:"page"`
+	Limit    int               `json:"limit"`
+	Products []ProductResponse `json:"products"`
+}
+

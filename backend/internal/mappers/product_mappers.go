@@ -39,3 +39,17 @@ func ToProductResponse(req *models.Product) *dto.ProductResponse {
 		TrangThai: req.TrangThai,
 	}
 }
+
+func ToProductListResponse(products []models.Product, total int64, page int64) *dto.ProductListResponse {
+	const limit = 10
+	responses := make([]dto.ProductResponse, 0, len(products))
+	for _, p := range products {
+		responses = append(responses, *ToProductResponse(&p))
+	}
+	return &dto.ProductListResponse{
+		Total:    total,
+		Page:     page,
+		Limit:    limit,
+		Products: responses,
+	}
+}

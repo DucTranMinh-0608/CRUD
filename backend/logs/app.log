@@ -500,3 +500,29 @@
 {"level":"warn","ts":1790041957.269952,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id_san_pham":1,"error":"product not found"}
 {"level":"info","ts":1790041964.4575768,"msg":"Tạo phiếu vận chuyển thành công","transport_id":5}
 {"level":"info","ts":1790043261.050137,"msg":"Lấy danh sách sản phẩm thành công","count":54}
+{"level":"info","ts":1790049460.195318,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"warn","ts":1790049511.2500906,"msg":"Đăng nhập thất bại: sai email hoặc mật khẩu","email":"test1@gmail.com"}
+{"level":"info","ts":1790049539.1135194,"msg":"Đăng nhập thành công","email":"test1@gmail.com","user_id":2}
+{"level":"info","ts":1790049562.7421932,"msg":"Lấy danh sách sản phẩm thành công","count":10}
+{"level":"info","ts":1790049609.516086,"msg":"Lấy danh sách sản phẩm thành công","count":10}
+{"level":"info","ts":1790049615.8405087,"msg":"Lấy danh sách sản phẩm thành công","count":10}
+{"level":"info","ts":1790049620.1037147,"msg":"Lấy danh sách sản phẩm thành công","count":10}
+{"level":"info","ts":1790049746.0358531,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1790049751.5849216,"msg":"Lấy danh sách sản phẩm thành công","count":10}
+{"level":"info","ts":1790049756.958706,"msg":"Lấy danh sách sản phẩm thành công","count":10}
+{"level":"info","ts":1790049760.9558163,"msg":"Lấy danh sách sản phẩm thành công","count":0}
+{"level":"info","ts":1790049805.8119044,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"warn","ts":1790049812.7000508,"msg":"Số trang không hợp lệ"}
+{"level":"warn","ts":1790049819.0023544,"msg":"Số trang không hợp lệ"}
+{"level":"warn","ts":1790049820.3318048,"msg":"Số trang không hợp lệ"}
+{"level":"warn","ts":1790049866.7913003,"msg":"Số trang không hợp lệ"}
+{"level":"info","ts":1790049936.406084,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"warn","ts":1790049941.476648,"msg":"Số trang không hợp lệ"}
+{"level":"info","ts":1790050063.2233644,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"warn","ts":1790050068.5578997,"msg":"Số trang không hợp lệ"}
+{"level":"info","ts":1790050180.7053466,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"warn","ts":1790050191.4042761,"msg":"ID không hợp lệ","error":"ID phải lớn hơn 0"}
+{"level":"info","ts":1790050335.466023,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"warn","ts":1790050340.8020833,"msg":"ID không hợp lệ","error":"số phải lớn hơn 0"}
+{"level":"info","ts":1790050934.3414557,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1790050947.1028771,"msg":"Lấy danh sách sản phẩm thành công","count":10,"total":54}

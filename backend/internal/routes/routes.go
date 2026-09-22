@@ -52,7 +52,7 @@ func ProductRoutes(router *gin.RouterGroup, controller *controllers.ProductContr
 	products := router.Group("/products")
 	products.Use(authMiddleware)
 	{
-		products.GET("", controller.GetAllProducts)
+		products.GET("/page/:id", controller.GetAllProducts)
 		products.GET("/:id", controller.GetProductByID)
 		products.POST("", middlewares.RequireRoles("admin"), controller.CreateProduct)
 		products.PUT("/:id", middlewares.RequireRoles("admin"), controller.UpdateProduct)

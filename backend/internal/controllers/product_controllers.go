@@ -73,7 +73,33 @@ func (ctrl *ProductController) CreateProduct(c *gin.Context) {
 }
 
 func (ctrl *ProductController) GetAllProducts(c *gin.Context) {
-	products, err := ctrl.service.GetAllProducts(c.Request.Context())
+
+	idParam := c.Param("id")
+	id, err := strconv.ParseInt(idParam, 10, 64)
+
+	if err != nil {
+		logger.Log.Warn(
+			"ID không hợp lệ",
+			zap.Error(err),
+		)
+
+		utils.InvalidDataResponse(c, err)
+		return
+	}
+
+	if id <= 0 {
+		err = services.ErrInvalidQuantity
+
+		logger.Log.Warn(
+			"ID không hợp lệ",
+			zap.Error(err),
+		)
+
+		utils.InvalidDataResponse(c, err)
+		return
+	}
+
+	products, total, err := ctrl.service.GetAllProducts(c.Request.Context(), id)
 	if err != nil {
 
 		logger.Log.Error(
@@ -88,13 +114,10 @@ func (ctrl *ProductController) GetAllProducts(c *gin.Context) {
 	logger.Log.Info(
 		"Lấy danh sách sản phẩm thành công",
 		zap.Any("count", len(products)),
+		zap.Int64("total", total),
 	)
 
-	responses := make([]dto.ProductResponse, 0, len(products))
-	for _, p := range products {
-		responses = append(responses, *mappers.ToProductResponse(&p))
-	}
-	utils.SuccessResponse(c, "Lấy sản phẩm", responses)
+	utils.SuccessResponse(c, "Lấy sản phẩm", mappers.ToProductListResponse(products, total, id))
 }
 
 func (ctrl *ProductController) GetProductByID(c *gin.Context) {

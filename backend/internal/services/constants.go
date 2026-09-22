@@ -6,12 +6,12 @@ import (
 )
 
 var (
-	ErrEmpty           = errors.New("không được truyền vào xâu rỗng")
-	ErrInvalidRole     = errors.New("chức vụ không hợp lệ, chỉ chấp nhận admin hoặc staff")
-	ErrNegative        = errors.New("không được nhỏ hơn 0")
-	ErrInvalidQuantity = errors.New("số lượng phải lớn hơn 0")
-	ErrInvalidStatus   = errors.New("trạng thái không hợp lệ, chỉ chấp nhận enabled hoặc disabled")
-	ErrInvalidTask     = errors.New("nhiệm vụ không hợp lệ, chỉ chấp nhận import hoặc export")
+	ErrEmpty              = errors.New("không được truyền vào xâu rỗng")
+	ErrInvalidRole        = errors.New("chức vụ không hợp lệ, chỉ chấp nhận admin hoặc staff")
+	ErrNegative           = errors.New("không được nhỏ hơn 0")
+	ErrInvalidQuantity    = errors.New("số phải lớn hơn 0")
+	ErrInvalidStatus      = errors.New("trạng thái không hợp lệ, chỉ chấp nhận enabled hoặc disabled")
+	ErrInvalidTask        = errors.New("nhiệm vụ không hợp lệ, chỉ chấp nhận import hoặc export")
 	ErrNegativeStock      = repositories.ErrNegativeStock
 	ErrUserNotFound       = repositories.ErrUserNotFound
 	ErrProductNotFound    = repositories.ErrProductNotFound
