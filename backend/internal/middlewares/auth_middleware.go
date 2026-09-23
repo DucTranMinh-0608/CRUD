@@ -16,21 +16,19 @@ import (
 const CurrentUserKey = "currentUser"
 
 func ExtractToken(c *gin.Context) string {
-	token, _ := c.Cookie("access_token")
-
-	if token == "" {
-		authHeader := c.GetHeader("Authorization")
-		if authHeader != "" {
-			parts := strings.SplitN(authHeader, " ", 2)
-			if len(parts) == 2 && strings.EqualFold(parts[0], "Bearer") {
-				token = parts[1]
-			} else if len(parts) == 1 {
-				token = parts[0]
-			}
-			token = strings.TrimSpace(token)
-		}
+	authHeader := c.GetHeader("Authorization")
+	if authHeader == "" {
+		return ""
 	}
-	return token
+
+	parts := strings.SplitN(authHeader, " ", 2)
+	if len(parts) == 2 && strings.EqualFold(parts[0], "Bearer") {
+		return strings.TrimSpace(parts[1])
+	}
+	if len(parts) == 1 {
+		return strings.TrimSpace(parts[0])
+	}
+	return ""
 }
 
 func AuthMiddleware(authService services.AuthService) gin.HandlerFunc {

@@ -136,9 +136,10 @@ func (ctrl *AuthController) Login(c *gin.Context) {
 		zap.Int64("user_id", user.ID),
 	)
 
-	c.SetCookie("access_token", token, 3600, "/", "", false, true)
-
-	utils.SuccessResponse(c, "Đăng nhập", mappers.ToUserResponse(user))
+	utils.SuccessResponse(c, "Đăng nhập", gin.H{
+		"access_token": token,
+		"user":         mappers.ToUserResponse(user),
+	})
 }
 
 func (ctrl *AuthController) GetMe(c *gin.Context) {
@@ -155,7 +156,6 @@ func (ctrl *AuthController) GetMe(c *gin.Context) {
 func (ctrl *AuthController) Logout(c *gin.Context) {
 	token := middlewares.ExtractToken(c)
 	if token == "" {
-		c.SetCookie("access_token", "", -1, "/", "", false, true)
 		if logger.Log != nil {
 			logger.Log.Warn("Đăng xuất thất bại: không tìm thấy token xác thực")
 		}
@@ -166,13 +166,11 @@ func (ctrl *AuthController) Logout(c *gin.Context) {
 	if err := ctrl.service.Logout(c.Request.Context(), token); err != nil {
 		if logger.Log != nil {
 			logger.Log.Warn(
-				"Lỗi khi thu hồi phiên đăng nhập trên Supabase Auth (vẫn tiếp tục xóa cookie)",
+				"Lỗi khi thu hồi phiên đăng nhập trên Supabase Auth",
 				zap.Error(err),
 			)
 		}
 	}
-
-	c.SetCookie("access_token", "", -1, "/", "", false, true)
 
 	if logger.Log != nil {
 		logger.Log.Info("Đăng xuất thành công")
