@@ -3,6 +3,7 @@ package services
 import (
 	"backend/internal/models"
 	"backend/internal/repositories"
+	"backend/internal/utils"
 	"context"
 	"strings"
 )
@@ -27,26 +28,26 @@ func NewProductService(repo repositories.ProductRepository) ProductService {
 
 func (s *productService) CreateProduct(ctx context.Context, req *models.CreateProduct) (*models.Product, error) {
 	if req == nil {
-		return nil, ErrEmpty
+		return nil, utils.ErrEmpty
 	}
 	req.TenMay = strings.TrimSpace(req.TenMay)
 	req.Hang = strings.TrimSpace(req.Hang)
 	req.TrangThai = strings.TrimSpace(req.TrangThai)
 
 	if req.TenMay == "" {
-		return nil, ErrEmpty
+		return nil, utils.ErrEmpty
 	}
 	if req.Hang == "" {
-		return nil, ErrEmpty
+		return nil, utils.ErrEmpty
 	}
 	if req.SoLuong < 0 {
-		return nil, ErrNegative
+		return nil, utils.ErrNegative
 	}
 	if req.TrangThai == "" {
-		return nil, ErrEmpty
+		return nil, utils.ErrEmpty
 	}
 	if req.TrangThai != "enabled" && req.TrangThai != "disabled" {
-		return nil, ErrInvalidStatus
+		return nil, utils.ErrInvalidStatus
 	}
 
 	product, err := s.repo.CreateProduct(ctx, req)
@@ -66,7 +67,7 @@ func (s *productService) GetAllProducts(ctx context.Context, id int64) ([]models
 
 func (s *productService) GetProductByID(ctx context.Context, id int64) (*models.Product, error) {
 	if id <= 0 {
-		return nil, repositories.ErrProductNotFound
+		return nil, utils.ErrProductNotFound
 	}
 	product, err := s.repo.GetProductByID(ctx, id)
 	if err != nil {
@@ -77,37 +78,37 @@ func (s *productService) GetProductByID(ctx context.Context, id int64) (*models.
 
 func (s *productService) UpdateProduct(ctx context.Context, id int64, req *models.UpdateProduct) (*models.Product, error) {
 	if id <= 0 {
-		return nil, repositories.ErrProductNotFound
+		return nil, utils.ErrProductNotFound
 	}
 	if req == nil {
-		return nil, ErrEmpty
+		return nil, utils.ErrEmpty
 	}
 
 	if req.TenMay != nil {
 		*req.TenMay = strings.TrimSpace(*req.TenMay)
 		if *req.TenMay == "" {
-			return nil, ErrEmpty
+			return nil, utils.ErrEmpty
 		}
 	}
 
 	if req.Hang != nil {
 		*req.Hang = strings.TrimSpace(*req.Hang)
 		if *req.Hang == "" {
-			return nil, ErrEmpty
+			return nil, utils.ErrEmpty
 		}
 	}
 
 	if req.SoLuong != nil && *req.SoLuong < 0 {
-		return nil, ErrNegative
+		return nil, utils.ErrNegative
 	}
 
 	if req.TrangThai != nil {
 		*req.TrangThai = strings.TrimSpace(*req.TrangThai)
 		if *req.TrangThai == "" {
-			return nil, ErrEmpty
+			return nil, utils.ErrEmpty
 		}
 		if *req.TrangThai != "enabled" && *req.TrangThai != "disabled" {
-			return nil, ErrInvalidStatus
+			return nil, utils.ErrInvalidStatus
 		}
 	}
 
@@ -120,7 +121,7 @@ func (s *productService) UpdateProduct(ctx context.Context, id int64, req *model
 
 // func (s *productService) DeleteProduct(ctx context.Context, id int64) error {
 // 	if id <= 0 {
-// 		return repositories.ErrProductNotFound
+// 		return utils.ErrProductNotFound
 // 	}
 // 	return s.repo.DeleteProduct(ctx, id)
 // }

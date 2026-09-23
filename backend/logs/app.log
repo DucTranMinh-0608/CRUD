@@ -526,3 +526,20 @@
 {"level":"warn","ts":1790050340.8020833,"msg":"ID không hợp lệ","error":"số phải lớn hơn 0"}
 {"level":"info","ts":1790050934.3414557,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
 {"level":"info","ts":1790050947.1028771,"msg":"Lấy danh sách sản phẩm thành công","count":10,"total":54}
+{"level":"info","ts":1790136662.4039223,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1790136729.8420217,"msg":"Đăng nhập thành công","email":"test2@gmail.com","user_id":3}
+{"level":"warn","ts":1790136781.7298195,"msg":"Dữ liệu gửi lên không hợp lệ","error":"Key: 'CreateTransportRequest.IDSanPham' Error:Field validation for 'IDSanPham' failed on the 'required' tag\nKey: 'CreateTransportRequest.NhiemVu' Error:Field validation for 'NhiemVu' failed on the 'required' tag\nKey: 'CreateTransportRequest.SoLuong' Error:Field validation for 'SoLuong' failed on the 'required' tag"}
+{"level":"warn","ts":1790136918.0759792,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id_san_pham":5,"error":"product not found"}
+{"level":"warn","ts":1790136924.8181021,"msg":"Sản phẩm đã bị vô hiệu hóa","id_san_pham":20,"error":"sản phẩm đã bị vô hiệu hóa"}
+{"level":"info","ts":1790136930.1473238,"msg":"Tạo phiếu vận chuyển thành công","transport_id":6}
+{"level":"warn","ts":1790136948.7455711,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id_san_pham":81,"error":"product not found"}
+{"level":"info","ts":1790136955.7082417,"msg":"Tạo phiếu vận chuyển thành công","transport_id":7}
+{"level":"error","ts":1790137007.061238,"msg":"Lỗi hệ thống khi tạo phiếu vận chuyển","error":"failed to create transport: {\"code\":\"P0001\",\"details\":null,\"hint\":null,\"message\":\"Không đủ tồn kho. Hiện có 0, yêu cầu 100000\"}"}
+{"level":"error","ts":1790137017.4256735,"msg":"Lỗi hệ thống khi tạo phiếu vận chuyển","error":"failed to create transport: {\"code\":\"P0001\",\"details\":null,\"hint\":null,\"message\":\"Không đủ tồn kho. Hiện có 0, yêu cầu 100000\"}"}
+{"level":"warn","ts":1790137025.0169542,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id_san_pham":13,"error":"product not found"}
+{"level":"warn","ts":1790137029.8854067,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id_san_pham":14,"error":"product not found"}
+{"level":"warn","ts":1790137035.807501,"msg":"Sản phẩm đã bị vô hiệu hóa","id_san_pham":20,"error":"sản phẩm đã bị vô hiệu hóa"}
+{"level":"warn","ts":1790137041.5460255,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id_san_pham":30,"error":"product not found"}
+{"level":"error","ts":1790137069.400146,"msg":"Lỗi hệ thống khi tạo phiếu vận chuyển","error":"failed to create transport: {\"code\":\"P0001\",\"details\":null,\"hint\":null,\"message\":\"Không đủ tồn kho. Hiện có 10, yêu cầu 100000\"}"}
+{"level":"info","ts":1790139534.2448423,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"warn","ts":1790139540.7650232,"msg":"Dữ liệu tạo phiếu vận chuyển không hợp lệ","error":"số lượng sản phẩm sau khi thực hiện không được âm"}

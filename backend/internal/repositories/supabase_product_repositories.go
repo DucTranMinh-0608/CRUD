@@ -2,6 +2,7 @@ package repositories
 
 import (
 	"backend/internal/models"
+	"backend/internal/utils"
 	"context"
 	"encoding/json"
 	"errors"
@@ -70,7 +71,6 @@ func (r *SupabaseProductRepository) GetAllProducts(ctx context.Context, id int64
 	return products, count, nil
 }
 
-
 func (r *SupabaseProductRepository) GetProductByID(ctx context.Context, id int64) (*models.Product, error) {
 	data, _, err := r.client.From("products").
 		Select("*", "", false).
@@ -86,7 +86,7 @@ func (r *SupabaseProductRepository) GetProductByID(ctx context.Context, id int64
 	}
 
 	if len(products) == 0 {
-		return nil, ErrProductNotFound
+		return nil, utils.ErrProductNotFound
 	}
 
 	return &products[0], nil
@@ -129,7 +129,7 @@ func (r *SupabaseProductRepository) UpdateProduct(ctx context.Context, id int64,
 	}
 
 	if len(products) == 0 {
-		return nil, ErrProductNotFound
+		return nil, utils.ErrProductNotFound
 	}
 
 	return &products[0], nil
@@ -150,7 +150,7 @@ func (r *SupabaseProductRepository) UpdateProduct(ctx context.Context, id int64,
 // 	}
 
 // 	if len(products) == 0 {
-// 		return ErrProductNotFound
+// 		return utils.ErrProductNotFound
 // 	}
 
 // 	return nil

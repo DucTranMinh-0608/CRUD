@@ -2,6 +2,7 @@ package repositories
 
 import (
 	"backend/internal/models"
+	"backend/internal/utils"
 	"context"
 	"encoding/json"
 	"errors"
@@ -34,7 +35,7 @@ func (r *SupabaseAuthRepository) Register(ctx context.Context, req *models.Regis
 			ID int64 `json:"ID"`
 		}
 		if json.Unmarshal(existingData, &existingUsers) == nil && len(existingUsers) > 0 {
-			return nil, ErrEmailAlreadyExists
+			return nil, utils.ErrEmailAlreadyExists
 		}
 	}
 
@@ -52,7 +53,7 @@ func (r *SupabaseAuthRepository) Register(ctx context.Context, req *models.Regis
 	if err != nil {
 		errLower := strings.ToLower(err.Error())
 		if strings.Contains(errLower, "already") || strings.Contains(errLower, "exists") {
-			return nil, ErrEmailAlreadyExists
+			return nil, utils.ErrEmailAlreadyExists
 		}
 		return nil, fmt.Errorf("lỗi khi đăng ký auth supabase: %w", err)
 	}
@@ -81,7 +82,7 @@ func (r *SupabaseAuthRepository) Register(ctx context.Context, req *models.Regis
 	}
 
 	if len(users) == 0 {
-		return nil, ErrUserNotFound
+		return nil, utils.ErrUserNotFound
 	}
 
 	return &users[0], nil
@@ -92,7 +93,7 @@ func (r *SupabaseAuthRepository) Login(ctx context.Context, req *models.Login) (
 	if err != nil {
 		errLower := strings.ToLower(err.Error())
 		if strings.Contains(errLower, "invalid") || strings.Contains(errLower, "credentials") || strings.Contains(errLower, "grant") {
-			return nil, "", ErrInvalidCredentials
+			return nil, "", utils.ErrInvalidCredentials
 		}
 		return nil, "", fmt.Errorf("lỗi khi đăng nhập supabase auth: %w", err)
 	}
@@ -124,7 +125,7 @@ func (r *SupabaseAuthRepository) Login(ctx context.Context, req *models.Login) (
 	}
 
 	if len(users) == 0 {
-		return nil, "", ErrUserNotFound
+		return nil, "", utils.ErrUserNotFound
 	}
 
 	return &users[0], accessToken, nil
@@ -133,11 +134,11 @@ func (r *SupabaseAuthRepository) Login(ctx context.Context, req *models.Login) (
 func (r *SupabaseAuthRepository) GetUserFromToken(ctx context.Context, token string) (*models.User, error) {
 	userResp, err := r.client.Auth.WithToken(token).GetUser()
 	if err != nil {
-		return nil, ErrInvalidToken
+		return nil, utils.ErrInvalidToken
 	}
 
 	if userResp == nil || userResp.ID == uuid.Nil {
-		return nil, ErrInvalidToken
+		return nil, utils.ErrInvalidToken
 	}
 
 	data, _, err := r.client.From("users").
@@ -154,7 +155,7 @@ func (r *SupabaseAuthRepository) GetUserFromToken(ctx context.Context, token str
 	}
 
 	if len(users) == 0 {
-		return nil, ErrUserNotFound
+		return nil, utils.ErrUserNotFound
 	}
 
 	return &users[0], nil

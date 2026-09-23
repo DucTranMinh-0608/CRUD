@@ -30,7 +30,7 @@ func (ctrl *TransportController) CreateTransport(c *gin.Context) {
 	currentUser, exists := middlewares.GetCurrentUser(c)
 	if !exists || currentUser == nil {
 		logger.Log.Warn("Không tìm thấy thông tin người dùng đăng nhập trong context")
-		utils.UnauthorizedResponse(c, services.ErrMissingToken)
+		utils.UnauthorizedResponse(c, utils.ErrMissingToken)
 		return
 	}
 
@@ -51,11 +51,11 @@ func (ctrl *TransportController) CreateTransport(c *gin.Context) {
 
 	result, err := ctrl.service.CreateTransport(c.Request.Context(), transportModel)
 	if err != nil {
-		if errors.Is(err, services.ErrEmpty) ||
-			errors.Is(err, services.ErrNegative) ||
-			errors.Is(err, services.ErrInvalidQuantity) ||
-			errors.Is(err, services.ErrInvalidTask) ||
-			errors.Is(err, services.ErrNegativeStock) {
+		if errors.Is(err, utils.ErrEmpty) ||
+			errors.Is(err, utils.ErrNegative) ||
+			errors.Is(err, utils.ErrInvalidQuantity) ||
+			errors.Is(err, utils.ErrInvalidTask) ||
+			errors.Is(err, utils.ErrNegativeStock) {
 
 			logger.Log.Warn(
 				"Dữ liệu tạo phiếu vận chuyển không hợp lệ",
@@ -66,7 +66,7 @@ func (ctrl *TransportController) CreateTransport(c *gin.Context) {
 			return
 		}
 
-		if errors.Is(err, services.ErrAccountDisabled) {
+		if errors.Is(err, utils.ErrAccountDisabled) {
 			logger.Log.Warn(
 				"Tài khoản người tạo đã bị vô hiệu hóa",
 				zap.Int64("id_nguoi_tao", transportModel.IDNguoiTao),
@@ -76,7 +76,7 @@ func (ctrl *TransportController) CreateTransport(c *gin.Context) {
 			return
 		}
 
-		if errors.Is(err, services.ErrProductDisabled) {
+		if errors.Is(err, utils.ErrProductDisabled) {
 			logger.Log.Warn(
 				"Sản phẩm đã bị vô hiệu hóa",
 				zap.Int64("id_san_pham", transportModel.IDSanPham),
@@ -86,7 +86,7 @@ func (ctrl *TransportController) CreateTransport(c *gin.Context) {
 			return
 		}
 
-		if errors.Is(err, services.ErrUserNotFound) {
+		if errors.Is(err, utils.ErrUserNotFound) {
 			logger.Log.Warn(
 				"Không tìm thấy người dùng với ID đã cung cấp",
 				zap.Int64("id_nguoi_tao", transportModel.IDNguoiTao),
@@ -96,7 +96,7 @@ func (ctrl *TransportController) CreateTransport(c *gin.Context) {
 			return
 		}
 
-		if errors.Is(err, services.ErrProductNotFound) {
+		if errors.Is(err, utils.ErrProductNotFound) {
 			logger.Log.Warn(
 				"Không tìm thấy sản phẩm với ID đã cung cấp",
 				zap.Int64("id_san_pham", transportModel.IDSanPham),
@@ -152,7 +152,7 @@ func (ctrl *TransportController) GetTransportsByUserID(c *gin.Context) {
 	currentUser, exists := middlewares.GetCurrentUser(c)
 	if !exists || currentUser == nil {
 		logger.Log.Warn("Không tìm thấy thông tin người dùng đăng nhập trong context")
-		utils.UnauthorizedResponse(c, services.ErrMissingToken)
+		utils.UnauthorizedResponse(c, utils.ErrMissingToken)
 		return
 	}
 
@@ -174,7 +174,7 @@ func (ctrl *TransportController) GetTransportsByUserID(c *gin.Context) {
 
 	transports, err := ctrl.service.GetTransportsByUserID(c.Request.Context(), currentUser, userID)
 	if err != nil {
-		if errors.Is(err, services.ErrForbidden) {
+		if errors.Is(err, utils.ErrForbidden) {
 			logger.Log.Warn(
 				"Người dùng không có quyền xem phiếu vận chuyển của người khác",
 				zap.Int64("current_user_id", currentUser.ID),
@@ -185,7 +185,7 @@ func (ctrl *TransportController) GetTransportsByUserID(c *gin.Context) {
 			return
 		}
 
-		if errors.Is(err, services.ErrUserNotFound) {
+		if errors.Is(err, utils.ErrUserNotFound) {
 			logger.Log.Warn(
 				"Không tìm thấy người dùng với ID đã cung cấp",
 				zap.Int64("id_nguoi_tao", userID),

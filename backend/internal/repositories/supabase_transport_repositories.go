@@ -2,11 +2,13 @@ package repositories
 
 import (
 	"backend/internal/models"
+	"backend/internal/utils"
 	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"strconv"
+
 	"strings"
 
 	"github.com/supabase-community/postgrest-go"
@@ -24,96 +26,65 @@ func NewSupabaseTransportRepository(client *supabase.Client) *SupabaseTransportR
 }
 
 func (r *SupabaseTransportRepository) CreateTransport(ctx context.Context, req *models.CreateTransport) (*models.Transport, error) {
-	userIdStr := strconv.FormatInt(req.IDNguoiTao, 10)
-	productIdStr := strconv.FormatInt(req.IDSanPham, 10)
 
-	if req.TenNguoiTao == "" {
-		userData, _, err := r.client.From("users").
-			Select("Ten", "", false).
-			Eq("ID", userIdStr).
-			ExecuteWithContext(ctx)
-		if err != nil {
-			return nil, fmt.Errorf("failed to fetch user info: %w", err)
-		}
-
-		var users []struct {
-			Ten string `json:"Ten"`
-		}
-		if err := json.Unmarshal(userData, &users); err != nil {
-			return nil, fmt.Errorf("failed to decode user info: %w", err)
-		}
-		if len(users) == 0 {
-			return nil, ErrUserNotFound
-		}
-		req.TenNguoiTao = users[0].Ten
+	params := map[string]interface{}{
+		"p_id_nguoi_tao": req.IDNguoiTao,
+		"p_id_san_pham":  req.IDSanPham,
+		"p_nhiem_vu":     req.NhiemVu,
+		"p_so_luong":     req.SoLuong,
+		"p_ghi_chu":      req.GhiChu,
 	}
 
-	productData, _, err := r.client.From("products").
-		Select("TenMay, SoLuong", "", false).
-		Eq("ID", productIdStr).
-		ExecuteWithContext(ctx)
-	if err != nil {
-		return nil, fmt.Errorf("failed to fetch current product info: %w", err)
+	data := r.client.Rpc(
+		"create_transport_with_stock",
+		"exact",
+		params,
+	)
+
+	if strings.Contains(data, "IDNguoiTao không được null") {
+		return nil, utils.ErrEmpty
 	}
 
-	var products []struct {
-		TenMay  string `json:"TenMay"`
-		SoLuong int    `json:"SoLuong"`
-	}
-	if err := json.Unmarshal(productData, &products); err != nil {
-		return nil, fmt.Errorf("failed to decode product info: %w", err)
-	}
-	if len(products) == 0 {
-		return nil, ErrProductNotFound
+	if strings.Contains(data, "IDSanPham không được null") {
+		return nil, utils.ErrEmpty
 	}
 
-	if req.TenSanPham == "" {
-		req.TenSanPham = products[0].TenMay
+	if strings.Contains(data, "SoLuong phải lớn hơn 0") {
+		return nil, utils.ErrInvalidQuantity
 	}
 
-	var newSoLuong int
-	switch strings.ToLower(strings.TrimSpace(req.NhiemVu)) {
-	case "import":
-		newSoLuong = products[0].SoLuong + int(req.SoLuong)
-	case "export":
-		newSoLuong = products[0].SoLuong - int(req.SoLuong)
-	default:
-		return nil, fmt.Errorf("nhiệm vụ không hợp lệ: %s", req.NhiemVu)
+	if strings.Contains(data, "NhiemVu chỉ được là import hoặc export") {
+		return nil, utils.ErrInvalidTask
 	}
 
-	if newSoLuong < 0 {
-		return nil, ErrNegativeStock
+	if strings.Contains(data, "Không tìm thấy hoặc tài khoản người tạo đã bị vô hiệu hóa") {
+		return nil, utils.ErrAccountDisabled
 	}
 
-	data, _, err := r.client.From("transports").
-		Insert(req, false, "", "representation", "").
-		ExecuteWithContext(ctx)
-	if err != nil {
-		return nil, fmt.Errorf("failed to create transport: %w", err)
+	if strings.Contains(data, "Không tìm thấy sản phẩm ID") {
+		return nil, utils.ErrProductDisabled
+	}
+
+	if strings.Contains(data, "Không đủ tồn kho") {
+		return nil, utils.ErrNegativeStock
 	}
 
 	var transports []models.Transport
-	if err := json.Unmarshal(data, &transports); err != nil {
-		return nil, fmt.Errorf("failed to decode created transport: %w", err)
+
+	if err := json.Unmarshal([]byte(data), &transports); err != nil {
+		return nil, fmt.Errorf(
+			"failed to decode created transport: %w",
+			err,
+		)
 	}
 
 	if len(transports) == 0 {
-		return nil, errors.New("no transport record returned after creation")
+		return nil, errors.New(
+			"no transport record returned",
+		)
 	}
-
-	_, _, err = r.client.From("products").
-		Update(map[string]interface{}{
-			"SoLuong": newSoLuong,
-		}, "representation", "").
-		Eq("ID", productIdStr).
-		ExecuteWithContext(ctx)
-	if err != nil {
-		return nil, fmt.Errorf("tạo phiếu vận chuyển thành công nhưng cập nhật tồn kho thất bại: %w", err)
-	}
-
 	return &transports[0], nil
 }
-
 func (r *SupabaseTransportRepository) GetAllTransports(ctx context.Context) ([]models.Transport, error) {
 	data, _, err := r.client.From("transports").
 		Select("*", "", false).

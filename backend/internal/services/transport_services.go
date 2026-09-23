@@ -3,6 +3,7 @@ package services
 import (
 	"backend/internal/models"
 	"backend/internal/repositories"
+	"backend/internal/utils"
 	"context"
 	"strings"
 )
@@ -33,51 +34,52 @@ func NewTransportService(
 
 func (s *transportService) CreateTransport(ctx context.Context, req *models.CreateTransport) (*models.Transport, error) {
 	if req.IDNguoiTao <= 0 {
-		return nil, ErrEmpty
+		return nil, utils.ErrEmpty
 	}
 	if req.IDSanPham <= 0 {
-		return nil, ErrEmpty
+		return nil, utils.ErrEmpty
 	}
 	if req.SoLuong <= 0 {
-		return nil, ErrInvalidQuantity
+		return nil, utils.ErrInvalidQuantity
 	}
 
 	req.NhiemVu = strings.ToLower(strings.TrimSpace(req.NhiemVu))
 	if req.NhiemVu == "" {
-		return nil, ErrEmpty
+		return nil, utils.ErrEmpty
 	}
 	if req.NhiemVu != "import" && req.NhiemVu != "export" {
-		return nil, ErrInvalidTask
+		return nil, utils.ErrInvalidTask
 	}
 
 	user, err := s.userRepo.GetUserByID(ctx, req.IDNguoiTao)
 	if err != nil {
-		if err == repositories.ErrUserNotFound {
-			return nil, repositories.ErrUserNotFound
+		if err == utils.ErrUserNotFound {
+			return nil, utils.ErrUserNotFound
 		}
 		return nil, err
 	}
 
 	userStatus := strings.ToLower(strings.TrimSpace(user.TrangThai))
 	if userStatus == "disabled" {
-		return nil, ErrAccountDisabled
+		return nil, utils.ErrAccountDisabled
 	}
 
 	product, err := s.productRepo.GetProductByID(ctx, req.IDSanPham)
 	if err != nil {
-		if err == repositories.ErrProductNotFound {
-			return nil, repositories.ErrProductNotFound
+		if err == utils.ErrProductNotFound {
+			return nil, utils.ErrProductNotFound
 		}
 		return nil, err
 	}
 
 	productStatus := strings.ToLower(strings.TrimSpace(product.TrangThai))
 	if productStatus == "disabled" {
-		return nil, ErrProductDisabled
+		return nil, utils.ErrProductDisabled
 	}
 
-	req.TenNguoiTao = user.Ten
-	req.TenSanPham = product.TenMay
+	if product.SoLuong < int(req.SoLuong) {
+		return nil, utils.ErrNegativeStock
+	}
 
 	result, err := s.repo.CreateTransport(ctx, req)
 	if err != nil {
@@ -104,22 +106,22 @@ func (s *transportService) GetAllTransports(ctx context.Context) ([]models.Trans
 
 func (s *transportService) GetTransportsByUserID(ctx context.Context, currentUser *models.User, userID int64) ([]models.Transport, error) {
 	if currentUser == nil {
-		return nil, ErrMissingToken
+		return nil, utils.ErrMissingToken
 	}
 
 	if userID <= 0 {
-		return nil, repositories.ErrUserNotFound
+		return nil, utils.ErrUserNotFound
 	}
 
 	isAdmin := strings.EqualFold(strings.TrimSpace(currentUser.ChucVu), "admin")
 	if !isAdmin && currentUser.ID != userID {
-		return nil, ErrForbidden
+		return nil, utils.ErrForbidden
 	}
 
 	_, err := s.userRepo.GetUserByID(ctx, userID)
 	if err != nil {
-		if err == repositories.ErrUserNotFound {
-			return nil, repositories.ErrUserNotFound
+		if err == utils.ErrUserNotFound {
+			return nil, utils.ErrUserNotFound
 		}
 		return nil, err
 	}

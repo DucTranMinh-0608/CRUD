@@ -42,9 +42,9 @@ func (ctrl *ProductController) CreateProduct(c *gin.Context) {
 
 	product, err := ctrl.service.CreateProduct(c.Request.Context(), productModel)
 	if err != nil {
-		if errors.Is(err, services.ErrEmpty) ||
-			errors.Is(err, services.ErrNegative) ||
-			errors.Is(err, services.ErrInvalidStatus) {
+		if errors.Is(err, utils.ErrEmpty) ||
+			errors.Is(err, utils.ErrNegative) ||
+			errors.Is(err, utils.ErrInvalidStatus) {
 
 			logger.Log.Warn(
 				"Dữ liệu tạo sản phẩm không hợp lệ",
@@ -88,7 +88,7 @@ func (ctrl *ProductController) GetAllProducts(c *gin.Context) {
 	}
 
 	if id <= 0 {
-		err = services.ErrInvalidQuantity
+		err = utils.ErrInvalidQuantity
 
 		logger.Log.Warn(
 			"ID không hợp lệ",
@@ -137,7 +137,7 @@ func (ctrl *ProductController) GetProductByID(c *gin.Context) {
 	product, err := ctrl.service.GetProductByID(c.Request.Context(), id)
 	if err != nil {
 
-		if errors.Is(err, services.ErrProductNotFound) {
+		if errors.Is(err, utils.ErrProductNotFound) {
 
 			logger.Log.Warn(
 				"Không tìm thấy sản phẩm với ID đã cung cấp",
@@ -196,7 +196,7 @@ func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
 
 	updatedProduct, err := ctrl.service.UpdateProduct(c.Request.Context(), id, updatedProductModel)
 	if err != nil {
-		if errors.Is(err, services.ErrProductNotFound) {
+		if errors.Is(err, utils.ErrProductNotFound) {
 
 			logger.Log.Warn(
 				"Không tìm thấy sản phẩm để cập nhật",
@@ -208,9 +208,9 @@ func (ctrl *ProductController) UpdateProduct(c *gin.Context) {
 			return
 		}
 
-		if errors.Is(err, services.ErrEmpty) ||
-			errors.Is(err, services.ErrNegative) ||
-			errors.Is(err, services.ErrInvalidStatus) {
+		if errors.Is(err, utils.ErrEmpty) ||
+			errors.Is(err, utils.ErrNegative) ||
+			errors.Is(err, utils.ErrInvalidStatus) {
 
 			logger.Log.Warn(
 				"Dữ liệu cập nhật sản phẩm không hợp lệ",

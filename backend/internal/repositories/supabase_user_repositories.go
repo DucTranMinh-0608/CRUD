@@ -2,6 +2,7 @@ package repositories
 
 import (
 	"backend/internal/models"
+	"backend/internal/utils"
 	"context"
 	"encoding/json"
 	"fmt"
@@ -53,7 +54,7 @@ func (r *SupabaseUserRepository) GetUserByID(ctx context.Context, id int64) (*mo
 	}
 
 	if len(users) == 0 {
-		return nil, ErrUserNotFound
+		return nil, utils.ErrUserNotFound
 	}
 
 	return &users[0], nil
@@ -93,7 +94,7 @@ func (r *SupabaseUserRepository) UpdateUser(ctx context.Context, id int64, req *
 	}
 
 	if len(users) == 0 {
-		return nil, ErrUserNotFound
+		return nil, utils.ErrUserNotFound
 	}
 
 	return &users[0], nil

@@ -3,6 +3,7 @@ package services
 import (
 	"backend/internal/models"
 	"backend/internal/repositories"
+	"backend/internal/utils"
 	"context"
 	"net/mail"
 	"strings"
@@ -27,7 +28,7 @@ func NewAuthService(repo repositories.AuthRepository) AuthService {
 
 func (s *authService) Register(ctx context.Context, req *models.Register) (*models.User, error) {
 	if req == nil {
-		return nil, ErrEmpty
+		return nil, utils.ErrEmpty
 	}
 
 	req.Email = strings.TrimSpace(req.Email)
@@ -37,19 +38,19 @@ func (s *authService) Register(ctx context.Context, req *models.Register) (*mode
 	req.ChucVu = strings.ToLower(strings.TrimSpace(req.ChucVu))
 
 	if req.Email == "" || req.Password == "" || req.Ten == "" || req.SoDienThoai == "" || req.ChucVu == "" {
-		return nil, ErrEmpty
+		return nil, utils.ErrEmpty
 	}
 
 	if _, err := mail.ParseAddress(req.Email); err != nil {
-		return nil, ErrInvalidEmail
+		return nil, utils.ErrInvalidEmail
 	}
 
 	if len(req.Password) < 6 {
-		return nil, ErrPasswordTooShort
+		return nil, utils.ErrPasswordTooShort
 	}
 
 	if req.ChucVu != "admin" && req.ChucVu != "staff" {
-		return nil, ErrInvalidRole
+		return nil, utils.ErrInvalidRole
 	}
 
 	user, err := s.repo.Register(ctx, req)
@@ -62,18 +63,18 @@ func (s *authService) Register(ctx context.Context, req *models.Register) (*mode
 
 func (s *authService) Login(ctx context.Context, req *models.Login) (*models.User, string, error) {
 	if req == nil {
-		return nil, "", ErrEmpty
+		return nil, "", utils.ErrEmpty
 	}
 
 	req.Email = strings.TrimSpace(req.Email)
 	req.Password = strings.TrimSpace(req.Password)
 
 	if req.Email == "" || req.Password == "" {
-		return nil, "", ErrEmpty
+		return nil, "", utils.ErrEmpty
 	}
 
 	if _, err := mail.ParseAddress(req.Email); err != nil {
-		return nil, "", ErrInvalidEmail
+		return nil, "", utils.ErrInvalidEmail
 	}
 
 	user, token, err := s.repo.Login(ctx, req)
@@ -83,7 +84,7 @@ func (s *authService) Login(ctx context.Context, req *models.Login) (*models.Use
 
 	status := strings.ToLower(strings.TrimSpace(user.TrangThai))
 	if status == "disabled" {
-		return nil, "", ErrAccountDisabled
+		return nil, "", utils.ErrAccountDisabled
 	}
 
 	return user, token, nil
@@ -92,7 +93,7 @@ func (s *authService) Login(ctx context.Context, req *models.Login) (*models.Use
 func (s *authService) GetMe(ctx context.Context, token string) (*models.User, error) {
 	token = strings.TrimSpace(token)
 	if token == "" {
-		return nil, ErrMissingToken
+		return nil, utils.ErrMissingToken
 	}
 
 	user, err := s.repo.GetUserFromToken(ctx, token)
@@ -102,7 +103,7 @@ func (s *authService) GetMe(ctx context.Context, token string) (*models.User, er
 
 	status := strings.ToLower(strings.TrimSpace(user.TrangThai))
 	if status == "disabled" {
-		return nil, ErrAccountDisabled
+		return nil, utils.ErrAccountDisabled
 	}
 
 	return user, nil
@@ -111,7 +112,7 @@ func (s *authService) GetMe(ctx context.Context, token string) (*models.User, er
 func (s *authService) Logout(ctx context.Context, token string) error {
 	token = strings.TrimSpace(token)
 	if token == "" {
-		return ErrMissingToken
+		return utils.ErrMissingToken
 	}
 
 	return s.repo.Logout(ctx, token)

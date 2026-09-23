@@ -3,6 +3,7 @@ package services
 import (
 	"backend/internal/models"
 	"backend/internal/repositories"
+	"backend/internal/utils"
 	"context"
 	"strings"
 )
@@ -34,7 +35,7 @@ func (s *userService) GetAllUsers(ctx context.Context) ([]models.User, error) {
 
 func (s *userService) GetUserByID(ctx context.Context, id int64) (*models.User, error) {
 	if id <= 0 {
-		return nil, repositories.ErrUserNotFound
+		return nil, utils.ErrUserNotFound
 	}
 	user, err := s.repo.GetUserByID(ctx, id)
 	if err != nil {
@@ -45,35 +46,35 @@ func (s *userService) GetUserByID(ctx context.Context, id int64) (*models.User, 
 
 func (s *userService) UpdateUser(ctx context.Context, id int64, req *models.UpdateUser) (*models.User, error) {
 	if id <= 0 {
-		return nil, repositories.ErrUserNotFound
+		return nil, utils.ErrUserNotFound
 	}
 	if req == nil {
-		return nil, ErrEmpty
+		return nil, utils.ErrEmpty
 	}
 
 	if req.Ten != nil {
 		*req.Ten = strings.TrimSpace(*req.Ten)
 		if *req.Ten == "" {
-			return nil, ErrEmpty
+			return nil, utils.ErrEmpty
 		}
 	}
 
 	if req.SoDienThoai != nil {
 		*req.SoDienThoai = strings.TrimSpace(*req.SoDienThoai)
 		if *req.SoDienThoai == "" {
-			return nil, ErrEmpty
+			return nil, utils.ErrEmpty
 		}
 	}
 
 	if req.ChucVu != nil {
 		*req.ChucVu = strings.ToLower(strings.TrimSpace(*req.ChucVu))
 		if *req.ChucVu != "admin" && *req.ChucVu != "staff" {
-			return nil, ErrInvalidRole
+			return nil, utils.ErrInvalidRole
 		}
 	}
 
 	if req.TrangThai != nil && (*req.TrangThai != "enabled" && *req.TrangThai != "disabled") {
-		return nil, ErrInvalidStatus
+		return nil, utils.ErrInvalidStatus
 	}
 
 	user, err := s.repo.UpdateUser(ctx, id, req)

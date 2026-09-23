@@ -67,7 +67,7 @@ func (ctrl *UserController) GetUserByID(c *gin.Context) {
 	user, err := ctrl.service.GetUserByID(c.Request.Context(), id)
 	if err != nil {
 
-		if errors.Is(err, services.ErrUserNotFound) {
+		if errors.Is(err, utils.ErrUserNotFound) {
 
 			logger.Log.Warn(
 				"Không tìm thấy người dùng với ID đã cung cấp",
@@ -126,7 +126,7 @@ func (ctrl *UserController) UpdateUser(c *gin.Context) {
 
 	updatedUser, err := ctrl.service.UpdateUser(c.Request.Context(), id, updatedUserModel)
 	if err != nil {
-		if errors.Is(err, services.ErrUserNotFound) {
+		if errors.Is(err, utils.ErrUserNotFound) {
 
 			logger.Log.Warn(
 				"Không tìm thấy người dùng để cập nhật",
@@ -138,9 +138,9 @@ func (ctrl *UserController) UpdateUser(c *gin.Context) {
 			return
 		}
 
-		if errors.Is(err, services.ErrInvalidRole) ||
-			errors.Is(err, services.ErrInvalidStatus) ||
-			errors.Is(err, services.ErrEmpty) {
+		if errors.Is(err, utils.ErrInvalidRole) ||
+			errors.Is(err, utils.ErrInvalidStatus) ||
+			errors.Is(err, utils.ErrEmpty) {
 
 			logger.Log.Warn(
 				"Dữ liệu cập nhật người dùng không hợp lệ",

@@ -40,11 +40,11 @@ func (ctrl *AuthController) Register(c *gin.Context) {
 
 	user, err := ctrl.service.Register(c.Request.Context(), registerModel)
 	if err != nil {
-		if errors.Is(err, services.ErrEmpty) ||
-			errors.Is(err, services.ErrInvalidRole) ||
-			errors.Is(err, services.ErrPasswordTooShort) ||
-			errors.Is(err, services.ErrInvalidEmail) ||
-			errors.Is(err, services.ErrEmailAlreadyExists) {
+		if errors.Is(err, utils.ErrEmpty) ||
+			errors.Is(err, utils.ErrInvalidRole) ||
+			errors.Is(err, utils.ErrPasswordTooShort) ||
+			errors.Is(err, utils.ErrInvalidEmail) ||
+			errors.Is(err, utils.ErrEmailAlreadyExists) {
 
 			logger.Log.Warn(
 				"Dữ liệu đăng ký không hợp lệ hoặc đã tồn tại",
@@ -86,7 +86,7 @@ func (ctrl *AuthController) Login(c *gin.Context) {
 
 	user, token, err := ctrl.service.Login(c.Request.Context(), loginModel)
 	if err != nil {
-		if errors.Is(err, services.ErrEmpty) || errors.Is(err, services.ErrInvalidEmail) {
+		if errors.Is(err, utils.ErrEmpty) || errors.Is(err, utils.ErrInvalidEmail) {
 			logger.Log.Warn(
 				"Dữ liệu đăng nhập không hợp lệ",
 				zap.Error(err),
@@ -95,7 +95,7 @@ func (ctrl *AuthController) Login(c *gin.Context) {
 			return
 		}
 
-		if errors.Is(err, services.ErrInvalidCredentials) {
+		if errors.Is(err, utils.ErrInvalidCredentials) {
 			logger.Log.Warn(
 				"Đăng nhập thất bại: sai email hoặc mật khẩu",
 				zap.String("email", req.Email),
@@ -104,7 +104,7 @@ func (ctrl *AuthController) Login(c *gin.Context) {
 			return
 		}
 
-		if errors.Is(err, services.ErrAccountDisabled) {
+		if errors.Is(err, utils.ErrAccountDisabled) {
 			logger.Log.Warn(
 				"Đăng nhập thất bại: tài khoản đã bị vô hiệu hóa",
 				zap.String("email", req.Email),
@@ -113,7 +113,7 @@ func (ctrl *AuthController) Login(c *gin.Context) {
 			return
 		}
 
-		if errors.Is(err, services.ErrUserNotFound) {
+		if errors.Is(err, utils.ErrUserNotFound) {
 			logger.Log.Warn(
 				"Không tìm thấy người dùng trong database",
 				zap.String("email", req.Email),
@@ -146,7 +146,7 @@ func (ctrl *AuthController) GetMe(c *gin.Context) {
 	user, ok := middlewares.GetCurrentUser(c)
 	if !ok || user == nil {
 		logger.Log.Warn("Không tìm thấy thông tin người dùng trong context (yêu cầu AuthMiddleware)")
-		utils.UnauthorizedResponse(c, services.ErrMissingToken)
+		utils.UnauthorizedResponse(c, utils.ErrMissingToken)
 		return
 	}
 
@@ -159,7 +159,7 @@ func (ctrl *AuthController) Logout(c *gin.Context) {
 		if logger.Log != nil {
 			logger.Log.Warn("Đăng xuất thất bại: không tìm thấy token xác thực")
 		}
-		utils.UnauthorizedResponse(c, services.ErrMissingToken)
+		utils.UnauthorizedResponse(c, utils.ErrMissingToken)
 		return
 	}
 

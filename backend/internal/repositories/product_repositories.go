@@ -3,11 +3,6 @@ package repositories
 import (
 	"backend/internal/models"
 	"context"
-	"errors"
-)
-
-var (
-	ErrProductNotFound = errors.New("product not found")
 )
 
 type ProductRepository interface {

@@ -3,13 +3,6 @@ package repositories
 import (
 	"backend/internal/models"
 	"context"
-	"errors"
-)
-
-var (
-	ErrEmailAlreadyExists = errors.New("email đã tồn tại")
-	ErrInvalidCredentials = errors.New("email hoặc mật khẩu không chính xác")
-	ErrInvalidToken       = errors.New("token không hợp lệ hoặc đã hết hạn")
 )
 
 type AuthRepository interface {

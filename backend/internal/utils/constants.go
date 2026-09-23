@@ -1,9 +1,6 @@
-package services
+package utils
 
-import (
-	"backend/internal/repositories"
-	"errors"
-)
+import "errors"
 
 var (
 	ErrEmpty              = errors.New("không được truyền vào xâu rỗng")
@@ -12,12 +9,12 @@ var (
 	ErrInvalidQuantity    = errors.New("số phải lớn hơn 0")
 	ErrInvalidStatus      = errors.New("trạng thái không hợp lệ, chỉ chấp nhận enabled hoặc disabled")
 	ErrInvalidTask        = errors.New("nhiệm vụ không hợp lệ, chỉ chấp nhận import hoặc export")
-	ErrNegativeStock      = repositories.ErrNegativeStock
-	ErrUserNotFound       = repositories.ErrUserNotFound
-	ErrProductNotFound    = repositories.ErrProductNotFound
-	ErrEmailAlreadyExists = repositories.ErrEmailAlreadyExists
-	ErrInvalidCredentials = repositories.ErrInvalidCredentials
-	ErrInvalidToken       = repositories.ErrInvalidToken
+	ErrNegativeStock      = errors.New("số lượng sản phẩm sau khi thực hiện không được âm")
+	ErrUserNotFound       = errors.New("user not found")
+	ErrProductNotFound    = errors.New("product not found")
+	ErrEmailAlreadyExists = errors.New("email đã tồn tại")
+	ErrInvalidCredentials = errors.New("email hoặc mật khẩu không chính xác")
+	ErrInvalidToken       = errors.New("token không hợp lệ hoặc đã hết hạn")
 	ErrMissingToken       = errors.New("thiếu token xác thực")
 	ErrAccountDisabled    = errors.New("tài khoản đã bị vô hiệu hóa")
 	ErrProductDisabled    = errors.New("sản phẩm đã bị vô hiệu hóa")

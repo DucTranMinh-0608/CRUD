@@ -39,14 +39,14 @@ func AuthMiddleware(authService services.AuthService) gin.HandlerFunc {
 			if logger.Log != nil {
 				logger.Log.Warn("Middleware chặn request: thiếu token xác thực", zap.String("path", c.Request.URL.Path))
 			}
-			utils.UnauthorizedResponse(c, services.ErrMissingToken)
+			utils.UnauthorizedResponse(c, utils.ErrMissingToken)
 			c.Abort()
 			return
 		}
 
 		user, err := authService.GetMe(c.Request.Context(), token)
 		if err != nil {
-			if errors.Is(err, services.ErrInvalidToken) || errors.Is(err, services.ErrMissingToken) || errors.Is(err, services.ErrAccountDisabled) {
+			if errors.Is(err, utils.ErrInvalidToken) || errors.Is(err, utils.ErrMissingToken) || errors.Is(err, utils.ErrAccountDisabled) {
 				if logger.Log != nil {
 					logger.Log.Warn("Middleware chặn request: token không hợp lệ hoặc tài khoản vô hiệu", zap.Error(err), zap.String("path", c.Request.URL.Path))
 				}
@@ -55,7 +55,7 @@ func AuthMiddleware(authService services.AuthService) gin.HandlerFunc {
 				return
 			}
 
-			if errors.Is(err, services.ErrUserNotFound) {
+			if errors.Is(err, utils.ErrUserNotFound) {
 				if logger.Log != nil {
 					logger.Log.Warn("Middleware chặn request: không tìm thấy người dùng", zap.Error(err), zap.String("path", c.Request.URL.Path))
 				}
@@ -84,7 +84,7 @@ func RequireRoles(allowedRoles ...string) gin.HandlerFunc {
 			if logger.Log != nil {
 				logger.Log.Warn("Role middleware chặn: không tìm thấy thông tin user trong context")
 			}
-			utils.UnauthorizedResponse(c, services.ErrMissingToken)
+			utils.UnauthorizedResponse(c, utils.ErrMissingToken)
 			c.Abort()
 			return
 		}
@@ -94,7 +94,7 @@ func RequireRoles(allowedRoles ...string) gin.HandlerFunc {
 			if logger.Log != nil {
 				logger.Log.Warn("Role middleware chặn: thông tin user không hợp lệ")
 			}
-			utils.UnauthorizedResponse(c, services.ErrMissingToken)
+			utils.UnauthorizedResponse(c, utils.ErrMissingToken)
 			c.Abort()
 			return
 		}
@@ -118,7 +118,7 @@ func RequireRoles(allowedRoles ...string) gin.HandlerFunc {
 					zap.String("path", c.Request.URL.Path),
 				)
 			}
-			utils.ForbiddenResponse(c, services.ErrForbidden)
+			utils.ForbiddenResponse(c, utils.ErrForbidden)
 			c.Abort()
 			return
 		}

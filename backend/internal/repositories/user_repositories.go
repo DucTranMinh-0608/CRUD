@@ -3,11 +3,6 @@ package repositories
 import (
 	"backend/internal/models"
 	"context"
-	"errors"
-)
-
-var (
-	ErrUserNotFound = errors.New("user not found")
 )
 
 type UserRepository interface {
