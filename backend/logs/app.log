@@ -543,3 +543,4 @@
 {"level":"error","ts":1790137069.400146,"msg":"Lỗi hệ thống khi tạo phiếu vận chuyển","error":"failed to create transport: {\"code\":\"P0001\",\"details\":null,\"hint\":null,\"message\":\"Không đủ tồn kho. Hiện có 10, yêu cầu 100000\"}"}
 {"level":"info","ts":1790139534.2448423,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
 {"level":"warn","ts":1790139540.7650232,"msg":"Dữ liệu tạo phiếu vận chuyển không hợp lệ","error":"số lượng sản phẩm sau khi thực hiện không được âm"}
+{"level":"info","ts":1790160500.7527845,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}

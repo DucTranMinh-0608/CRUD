@@ -57,11 +57,11 @@ func (r *SupabaseTransportRepository) CreateTransport(ctx context.Context, req *
 		return nil, utils.ErrInvalidTask
 	}
 
-	if strings.Contains(data, "Không tìm thấy hoặc tài khoản người tạo đã bị vô hiệu hóa") {
+	if strings.Contains(data, "Tài khoản người tạo đã bị vô hiệu hóa") {
 		return nil, utils.ErrAccountDisabled
 	}
 
-	if strings.Contains(data, "Không tìm thấy sản phẩm ID") {
+	if strings.Contains(data, "Sản phẩm đã bị vô hiệu hoá") {
 		return nil, utils.ErrProductDisabled
 	}
 
