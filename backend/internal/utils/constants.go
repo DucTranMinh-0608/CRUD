@@ -21,4 +21,6 @@ var (
 	ErrForbidden          = errors.New("bạn không có quyền thực hiện chức năng này")
 	ErrPasswordTooShort   = errors.New("mật khẩu phải có ít nhất 6 ký tự")
 	ErrInvalidEmail       = errors.New("định dạng email không hợp lệ")
+	ErrGenerateToken      = errors.New("không tạo được token")
+	ErrTokenNodata        = errors.New("không lấy được dữ liệu trong token")
 )

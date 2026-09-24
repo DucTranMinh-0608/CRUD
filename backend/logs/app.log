@@ -544,3 +544,23 @@
 {"level":"info","ts":1790139534.2448423,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
 {"level":"warn","ts":1790139540.7650232,"msg":"Dữ liệu tạo phiếu vận chuyển không hợp lệ","error":"số lượng sản phẩm sau khi thực hiện không được âm"}
 {"level":"info","ts":1790160500.7527845,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1790260732.515761,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1790260826.2579746,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"warn","ts":1790260903.527498,"msg":"Dữ liệu đăng nhập không hợp lệ","error":"invalid character '\"' after object key:value pair"}
+{"level":"info","ts":1790260912.0543923,"msg":"Đăng nhập thành công","email":"test1@gmail.com","user_id":2}
+{"level":"info","ts":1790260946.5743496,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1790260963.0955064,"msg":"Đăng nhập thành công","email":"test1@gmail.com","user_id":2}
+{"level":"info","ts":1790260995.544378,"msg":"Lấy danh sách sản phẩm thành công","count":10,"total":54}
+{"level":"info","ts":1790261028.7112205,"msg":"Đăng nhập thành công","email":"test1@gmail.com","user_id":2}
+{"level":"info","ts":1790261035.192143,"msg":"Đăng nhập thành công","email":"test2@gmail.com","user_id":3}
+{"level":"info","ts":1790261046.621346,"msg":"Đăng nhập thành công","email":"test2@gmail.com","user_id":3}
+{"level":"info","ts":1790261097.6825395,"msg":"Tìm thấy sản phẩm với ID đã cung cấp","id":3}
+{"level":"warn","ts":1790261121.21545,"msg":"Middleware chặn request: thiếu token xác thực","path":"/api/products/3"}
+{"level":"info","ts":1790261151.5209377,"msg":"Đăng nhập thành công","email":"test2@gmail.com","user_id":3}
+{"level":"info","ts":1790265712.3934917,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"error","ts":1790265725.905402,"msg":"Lỗi hệ thống khi đăng nhập","error":"lỗi khi lưu access token: (PGRST205) Could not find the table 'public.access_tokens' in the schema cache"}
+{"level":"error","ts":1790265748.9565248,"msg":"Lỗi hệ thống khi đăng nhập","error":"lỗi khi lưu access token: (PGRST205) Could not find the table 'public.access_tokens' in the schema cache"}
+{"level":"info","ts":1790265796.4431906,"msg":"Đăng nhập thành công","email":"test2@gmail.com","user_id":3}
+{"level":"info","ts":1790265860.3549275,"msg":"Lấy danh sách sản phẩm thành công","count":10,"total":54}
+{"level":"info","ts":1790265888.4438481,"msg":"Đăng xuất thành công"}
+{"level":"warn","ts":1790265904.8576808,"msg":"Middleware chặn request: token không hợp lệ hoặc tài khoản vô hiệu","error":"token không hợp lệ hoặc đã hết hạn","path":"/api/products/page/3"}

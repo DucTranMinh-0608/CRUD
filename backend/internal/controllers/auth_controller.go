@@ -166,10 +166,12 @@ func (ctrl *AuthController) Logout(c *gin.Context) {
 	if err := ctrl.service.Logout(c.Request.Context(), token); err != nil {
 		if logger.Log != nil {
 			logger.Log.Warn(
-				"Lỗi khi thu hồi phiên đăng nhập trên Supabase Auth",
+				"Lỗi khi xoá access token khỏi database",
 				zap.Error(err),
 			)
 		}
+		utils.NoConnectDataResponse(c, err)
+		return
 	}
 
 	if logger.Log != nil {

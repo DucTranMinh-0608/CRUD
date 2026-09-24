@@ -17,12 +17,14 @@ type AuthService interface {
 }
 
 type authService struct {
-	repo repositories.AuthRepository
+	repo     repositories.AuthRepository
+	userrepo repositories.UserRepository
 }
 
-func NewAuthService(repo repositories.AuthRepository) AuthService {
+func NewAuthService(repo repositories.AuthRepository, userrepo repositories.UserRepository) AuthService {
 	return &authService{
-		repo: repo,
+		repo:     repo,
+		userrepo: userrepo,
 	}
 }
 
@@ -77,7 +79,7 @@ func (s *authService) Login(ctx context.Context, req *models.Login) (*models.Use
 		return nil, "", utils.ErrInvalidEmail
 	}
 
-	user, token, err := s.repo.Login(ctx, req)
+	user, err := s.repo.Login(ctx, req)
 	if err != nil {
 		return nil, "", err
 	}
@@ -85,6 +87,16 @@ func (s *authService) Login(ctx context.Context, req *models.Login) (*models.Use
 	status := strings.ToLower(strings.TrimSpace(user.TrangThai))
 	if status == "disabled" {
 		return nil, "", utils.ErrAccountDisabled
+	}
+
+	token, jti, expiresAt, err := GenerateToken(user.ID)
+
+	if err != nil {
+		return nil, "", utils.ErrGenerateToken
+	}
+
+	if err := s.repo.CreateJTI(ctx, jti, expiresAt); err != nil {
+		return nil, "", err
 	}
 
 	return user, token, nil
@@ -96,7 +108,21 @@ func (s *authService) GetMe(ctx context.Context, token string) (*models.User, er
 		return nil, utils.ErrMissingToken
 	}
 
-	user, err := s.repo.GetUserFromToken(ctx, token)
+	userID, jti, err := VerifyToken(token)
+
+	if err != nil {
+		return nil, err
+	}
+
+	isValid, err := s.repo.FindJTI(ctx, jti)
+	if err != nil {
+		return nil, err
+	}
+	if !isValid {
+		return nil, utils.ErrInvalidToken
+	}
+
+	user, err := s.userrepo.GetUserByID(ctx, userID)
 	if err != nil {
 		return nil, err
 	}
@@ -115,5 +141,11 @@ func (s *authService) Logout(ctx context.Context, token string) error {
 		return utils.ErrMissingToken
 	}
 
-	return s.repo.Logout(ctx, token)
+	_, jti, err := VerifyToken(token)
+	if err != nil {
+		return err
+	}
+
+	return s.repo.DeleteJTI(ctx, jti)
 }
+

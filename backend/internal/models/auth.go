@@ -1,5 +1,7 @@
 package models
 
+import "time"
+
 type Register struct {
 	Email       string
 	Password    string
@@ -11,4 +13,9 @@ type Register struct {
 type Login struct {
 	Email    string
 	Password string
+}
+
+type AccessToken struct {
+	JTI       string    `json:"jti"`
+	ExpiresAt time.Time `json:"expires_at"`
 }

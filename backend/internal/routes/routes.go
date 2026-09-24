@@ -15,7 +15,8 @@ func SetupRoutes(r *gin.Engine, supabaseClient *supabase.Client) {
 	api := r.Group("/api")
 
 	authRepo := repositories.NewSupabaseAuthRepository(supabaseClient)
-	authService := services.NewAuthService(authRepo)
+	userRepo := repositories.NewSupabaseUserRepository(supabaseClient)
+	authService := services.NewAuthService(authRepo, userRepo)
 	authController := controllers.NewAuthController(authService)
 
 	authMiddleware := middlewares.AuthMiddleware(authService)
@@ -27,7 +28,7 @@ func SetupRoutes(r *gin.Engine, supabaseClient *supabase.Client) {
 	productController := controllers.NewProductController(productService)
 	ProductRoutes(api, productController, authMiddleware)
 
-	userRepo := repositories.NewSupabaseUserRepository(supabaseClient)
+	//userRepo := repositories.NewSupabaseUserRepository(supabaseClient)
 	userService := services.NewUserService(userRepo)
 	userController := controllers.NewUserController(userService)
 	UserRoutes(api, userController, authMiddleware)
