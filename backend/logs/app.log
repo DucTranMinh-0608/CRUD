@@ -564,3 +564,11 @@
 {"level":"info","ts":1790265860.3549275,"msg":"Lấy danh sách sản phẩm thành công","count":10,"total":54}
 {"level":"info","ts":1790265888.4438481,"msg":"Đăng xuất thành công"}
 {"level":"warn","ts":1790265904.8576808,"msg":"Middleware chặn request: token không hợp lệ hoặc tài khoản vô hiệu","error":"token không hợp lệ hoặc đã hết hạn","path":"/api/products/page/3"}
+{"level":"info","ts":1790307156.637104,"msg":"Server đang lắng nghe kết nối","port":"8080","url":"http://localhost:8080"}
+{"level":"info","ts":1790307192.261478,"msg":"Đăng nhập thành công","email":"test2@gmail.com","user_id":3}
+{"level":"warn","ts":1790307255.3133337,"msg":"Người dùng không đủ quyền hạn truy cập API","user_id":3,"user_role":"staff","required_roles":["admin"],"path":"/api/users/1"}
+{"level":"info","ts":1790307271.941911,"msg":"Lấy danh sách sản phẩm thành công","count":10,"total":54}
+{"level":"warn","ts":1790307277.5834787,"msg":"Không tìm thấy sản phẩm với ID đã cung cấp","id":45,"error":"product not found"}
+{"level":"info","ts":1790307308.826436,"msg":"Đăng xuất thành công"}
+{"level":"warn","ts":1790307330.4360256,"msg":"Middleware chặn request: token không hợp lệ hoặc tài khoản vô hiệu","error":"token không hợp lệ hoặc đã hết hạn","path":"/api/products/page/3"}
+{"level":"info","ts":1790307371.1510882,"msg":"Đăng nhập thành công","email":"test1@gmail.com","user_id":2}

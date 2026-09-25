@@ -89,7 +89,7 @@ func (s *authService) Login(ctx context.Context, req *models.Login) (*models.Use
 		return nil, "", utils.ErrAccountDisabled
 	}
 
-	token, jti, expiresAt, err := GenerateToken(user.ID)
+	token, jti, expiresAt, err := utils.GenerateToken(user.ID)
 
 	if err != nil {
 		return nil, "", utils.ErrGenerateToken
@@ -108,7 +108,7 @@ func (s *authService) GetMe(ctx context.Context, token string) (*models.User, er
 		return nil, utils.ErrMissingToken
 	}
 
-	userID, jti, err := VerifyToken(token)
+	userID, jti, err := utils.VerifyToken(token)
 
 	if err != nil {
 		return nil, err
@@ -141,11 +141,10 @@ func (s *authService) Logout(ctx context.Context, token string) error {
 		return utils.ErrMissingToken
 	}
 
-	_, jti, err := VerifyToken(token)
+	_, jti, err := utils.VerifyToken(token)
 	if err != nil {
 		return err
 	}
 
 	return s.repo.DeleteJTI(ctx, jti)
 }
-

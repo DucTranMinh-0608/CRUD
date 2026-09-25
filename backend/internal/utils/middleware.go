@@ -1,7 +1,6 @@
-package services
+package utils
 
 import (
-	"backend/internal/utils"
 	"errors"
 	"os"
 	"time"
@@ -15,7 +14,7 @@ func GenerateToken(userID int64) (string, string, time.Time, error) {
 	secret := os.Getenv("JWT_SECRET")
 
 	if secret == "" {
-		return "", "", time.Time{}, utils.ErrMissingToken
+		return "", "", time.Time{}, ErrMissingToken
 	}
 
 	jti := uuid.New().String()
@@ -42,7 +41,7 @@ func VerifyToken(tokenString string) (int64, string, error) {
 	secret := os.Getenv("JWT_SECRET")
 
 	if secret == "" {
-		return 0, "", utils.ErrMissingToken
+		return 0, "", ErrMissingToken
 	}
 
 	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
@@ -54,26 +53,26 @@ func VerifyToken(tokenString string) (int64, string, error) {
 	})
 
 	if err != nil {
-		return 0, "", utils.ErrInvalidToken
+		return 0, "", ErrInvalidToken
 	}
 
 	if !token.Valid {
-		return 0, "", utils.ErrInvalidToken
+		return 0, "", ErrInvalidToken
 	}
 
 	claims, ok := token.Claims.(jwt.MapClaims)
 	if !ok {
-		return 0, "", utils.ErrTokenNodata
+		return 0, "", ErrTokenNodata
 	}
 
 	userIDFloat, ok := claims["user_id"].(float64)
 	if !ok {
-		return 0, "", utils.ErrTokenNodata
+		return 0, "", ErrTokenNodata
 	}
 
 	jti, ok := claims["jti"].(string)
 	if !ok || jti == "" {
-		return 0, "", utils.ErrTokenNodata
+		return 0, "", ErrTokenNodata
 	}
 
 	return int64(userIDFloat), jti, nil
